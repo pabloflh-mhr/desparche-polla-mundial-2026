@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Polla Mundial 2026</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <style>
+        .flag-icon { width: 24px; height: 18px; object-fit: cover; }
+        .exact-match { background-color: #d1e7dd !important; font-weight: bold; }
+    </style>
+</head>
+<body>
+<div class="container my-4">
+    <h1 class="text-center text-primary">Polla Mundial 2026</h1>
+    <ul class="nav nav-tabs mb-4" id="myTab">
+        <li class="nav-item"><button class="nav-link active" data-bs-target="#posiciones" data-bs-toggle="tab">Posiciones</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-target="#detalles" data-bs-toggle="tab">Resumen Detallado</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-target="#predicciones" data-bs-toggle="tab">Predicciones</button></li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="posiciones">
+            <table class="table table-striped" id="table-pos">
+                <thead><tr><th>#</th><th>Participante</th><th>Puntos</th></tr></thead>
+                <tbody id="tbody-pos"></tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="detalles">
+            <table class="table table-striped" id="table-det">
+                <thead><tr><th>Participante</th><th>Concepto</th><th>Aciertos</th><th>Regla</th><th>Subtotal</th></tr></thead>
+                <tbody id="tbody-det"></tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="predicciones">
+            <table class="table table-sm table-bordered" id="table-pred">
+                <thead id="thead-pred"></thead>
+                <tbody id="tbody-pred"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+fetch("datos.json").then(r => r.json()).then(data => {
+    // 1. Posiciones
+    data.totales.forEach((p, i) => $('#tbody-pos').append(`<tr><td>${i+1}</td><td>${p.Participante}</td><td>${p.Total}</td>`));
+    
+    // 2. Resumen (ordenado por Puntaje Total del usuario)
+    data.resumen.sort((a,b) => b.PuntajeTotal - a.PuntajeTotal);
+    data.resumen.forEach(r => $('#tbody-det').append(`<tr><td>${r.Participante}</td><td>${r.Concepto}</td><td>${r.Aciertos}</td><td>${r.Regla}</td><td>${r.Subtotal}</td>`));
+    
+    // 3. Predicciones
+    let head = `<tr><th>Fecha</th><th>Hora</th><th>Fase</th><th>Local</th><th>Visitante</th><th>Marcador</th>`;
+    data.nombres.forEach(n => head += `<th>${n}</th>`);
+    $('#thead-pred').append(head);
+    
+    data.predicciones.forEach(p => {
+        let row = `<tr><td>${p.Fecha}</td><td>${p.Hora}</td><td>${p.Fase}</td><td><img src="${p.FlagLocal}" class="flag-icon"> ${p.Local}</td><td><img src="${p.FlagVisitante}" class="flag-icon"> ${p.Visitante}</td><td>${p.Marcador}</td>`;
+        data.nombres.forEach(n => {
+            let pred = p[n] || "-";
+            let cls = (pred === p.Marcador && p.Marcador !== "") ? "exact-match" : "";
+            row += `<td class="${cls}">${pred}</td>`;
+        });
+        $('#tbody-pred').append(row);
+    });
+
+    // Activar DataTables
+    $('table').DataTable({ "language": { "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json" } });
+});
+</script>
+</body>
+</html>
