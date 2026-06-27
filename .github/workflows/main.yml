@@ -1,0 +1,39 @@
+name: Actualizar JSON Automaticamente
+on:
+  schedule:
+    - cron: '0 * * * *' # Se ejecuta cada hora
+  workflow_dispatch: # Permite ejecutarlo manualmente
+
+jobs:
+  actualizar-archivo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' # Puedes cambiarlo a tu versión de Python
+
+      - name: Instalar librerías necesarias
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+          pip install playwright
+          playwright install chromium
+          
+          # Si tu script usa librerías externas (como requests), descomenta la siguiente línea:
+          #pip install requests 
+
+      - name: Ejecutar el script de Python
+        run: |
+          python scraper_polla.py  # Asegúrate de que este nombre coincida con tu archivo
+
+      - name: Hacer commit y subir cambios
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@://github.com'
+          git add datos.json # Cambia esto por el nombre real de tu JSON
+          git commit -m "Actualizacion automatica del JSON [skip ci]" || echo "No hay cambios para subir"
+          git push
