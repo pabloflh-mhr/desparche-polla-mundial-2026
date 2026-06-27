@@ -2,42 +2,74 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polla Mundial 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <style>
-        .flag-icon { width: 24px; height: 18px; object-fit: cover; }
-        .exact-match { background-color: #d1e7dd !important; font-weight: bold; }
+        body { background: #f8f9fa; }
+        .flag-icon { width: 24px; height: 18px; object-fit: cover; border: 1px solid #ddd; vertical-align: middle; }
+        .exact-match { background-color: #d1ffd6 !important; font-weight: bold; color: #155724; }
+        .winner-match { background-color: #cce5ff !important; color: #004085; }
+        .no-match { color: #aaa; }
+        .badge-fase { font-size: 0.7rem; }
+        .pos-1 { color: #b8860b; font-weight: bold; font-size: 1.1em; }
+        .pos-2 { color: #888; font-weight: bold; }
+        .pos-3 { color: #a0522d; font-weight: bold; }
+        th { white-space: nowrap; font-size: 0.82rem; }
+        td { font-size: 0.82rem; vertical-align: middle; }
+        #update-time { font-size: 0.75rem; color: #888; }
+        .filter-btn { margin: 2px; }
+        .score-cell { font-weight: bold; min-width: 50px; text-align: center; }
+        .pred-cell { min-width: 48px; text-align: center; }
     </style>
 </head>
 <body>
-<div class="container my-4">
-    <h1 class="text-center text-primary">Polla Mundial 2026</h1>
-    <ul class="nav nav-tabs mb-4" id="myTab">
-        <li class="nav-item"><button class="nav-link active" data-bs-target="#posiciones" data-bs-toggle="tab">Posiciones</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-target="#detalles" data-bs-toggle="tab">Resumen Detallado</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-target="#predicciones" data-bs-toggle="tab">Predicciones</button></li>
+<div class="container-fluid my-3">
+    <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+        <h4 class="mb-0">🏆 Polla Mundial 2026</h4>
+        <span id="update-time">Cargando...</span>
+    </div>
+
+    <ul class="nav nav-tabs mb-3" id="mainTab">
+        <li class="nav-item"><button class="nav-link active" data-bs-target="#tab-pos" data-bs-toggle="tab">📊 Posiciones</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-target="#tab-pred" data-bs-toggle="tab">⚽ Predicciones</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-target="#tab-res" data-bs-toggle="tab">📋 Resumen</button></li>
     </ul>
 
     <div class="tab-content">
-        <div class="tab-pane fade show active" id="posiciones">
-            <table class="table table-striped" id="table-pos">
-                <thead><tr><th>#</th><th>Participante</th><th>Puntos</th></tr></thead>
+
+        <!-- POSICIONES -->
+        <div class="tab-pane fade show active" id="tab-pos">
+            <table class="table table-striped table-hover table-sm" id="table-pos" style="max-width:500px">
+                <thead class="table-dark">
+                    <tr><th>#</th><th>Participante</th><th class="text-end">Puntos</th></tr>
+                </thead>
                 <tbody id="tbody-pos"></tbody>
             </table>
         </div>
-        <div class="tab-pane fade" id="detalles">
-            <table class="table table-striped" id="table-det">
-                <thead><tr><th>Participante</th><th>Concepto</th><th>Aciertos</th><th>Regla</th><th>Subtotal</th></tr></thead>
-                <tbody id="tbody-det"></tbody>
-            </table>
+
+        <!-- PREDICCIONES -->
+        <div class="tab-pane fade" id="tab-pred">
+            <div class="mb-2" id="fase-filters"></div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-sm" id="table-pred">
+                    <thead class="table-dark" id="thead-pred"></thead>
+                    <tbody id="tbody-pred"></tbody>
+                </table>
+            </div>
         </div>
-        <div class="tab-pane fade" id="predicciones">
-            <table class="table table-sm table-bordered" id="table-pred">
-                <thead id="thead-pred"></thead>
-                <tbody id="tbody-pred"></tbody>
-            </table>
+
+        <!-- RESUMEN -->
+        <div class="tab-pane fade" id="tab-res">
+            <div class="table-responsive">
+                <table class="table table-bordered table-sm text-center" id="table-res">
+                    <thead id="thead-res" class="table-dark"></thead>
+                    <tbody id="tbody-res"></tbody>
+                </table>
+            </div>
         </div>
+
     </div>
 </div>
 
@@ -47,32 +79,196 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-fetch("datos.json").then(r => r.json()).then(data => {
-    // 1. Posiciones
-    data.totales.forEach((p, i) => $('#tbody-pos').append(`<tr><td>${i+1}</td><td>${p.Participante}</td><td>${p.Total}</td>`));
-    
-    // 2. Resumen (ordenado por Puntaje Total del usuario)
-    data.resumen.sort((a,b) => b.PuntajeTotal - a.PuntajeTotal);
-    data.resumen.forEach(r => $('#tbody-det').append(`<tr><td>${r.Participante}</td><td>${r.Concepto}</td><td>${r.Aciertos}</td><td>${r.Regla}</td><td>${r.Subtotal}</td>`));
-    
-    // 3. Predicciones
-    let head = `<tr><th>Fecha</th><th>Hora</th><th>Fase</th><th>Local</th><th>Visitante</th><th>Marcador</th>`;
-    data.nombres.forEach(n => head += `<th>${n}</th>`);
-    $('#thead-pred').append(head);
-    
-    data.predicciones.forEach(p => {
-        let row = `<tr><td>${p.Fecha}</td><td>${p.Hora}</td><td>${p.Fase}</td><td><img src="${p.FlagLocal}" class="flag-icon"> ${p.Local}</td><td><img src="${p.FlagVisitante}" class="flag-icon"> ${p.Visitante}</td><td>${p.Marcador}</td>`;
-        data.nombres.forEach(n => {
-            let pred = p[n] || "-";
-            let cls = (pred === p.Marcador && p.Marcador !== "") ? "exact-match" : "";
-            row += `<td class="${cls}">${pred}</td>`;
+const MEDALS = ['🥇','🥈','🥉'];
+
+function getWinner(score) {
+    if (!score || score === 'Por jugar') return null;
+    const [h, v] = score.split('-').map(Number);
+    if (isNaN(h) || isNaN(v)) return null;
+    return h > v ? 'home' : v > h ? 'away' : 'draw';
+}
+
+function predClass(pred, marcador) {
+    if (!pred || pred === '-' || !marcador || marcador === 'Por jugar') return '';
+    if (pred === marcador) return 'exact-match';
+    const wReal = getWinner(marcador);
+    const wPred = getWinner(pred);
+    if (wReal && wPred && wReal === wPred) return 'winner-match';
+    return 'no-match';
+}
+
+let allData = null;
+let dtPred  = null;
+let dtRes   = null;
+let filtroFase = 'Todos';
+
+function renderPosiciones(data) {
+    data.totales.forEach((p, i) => {
+        const medal = i < 3 ? `<span class="pos-${i+1}">${MEDALS[i]}</span>` : (i+1);
+        $('#tbody-pos').append(`<tr>
+            <td>${medal}</td>
+            <td>${p.Participante}</td>
+            <td class="text-end fw-bold">${p.Total}</td>
+        </tr>`);
+    });
+    $('#table-pos').DataTable({
+        paging: false, searching: false, info: false, ordering: false,
+        language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json' }
+    });
+}
+
+function renderFiltros(data) {
+    const fases = ['Todos', ...new Set(data.predicciones.map(p => p.Fase))];
+    const bar = $('#fase-filters');
+    fases.forEach(f => {
+        bar.append(`<button class="btn btn-sm btn-outline-secondary filter-btn${f==='Todos'?' active':''}"
+            onclick="setFase('${f}', this)">${f}</button>`);
+    });
+}
+
+function setFase(fase, btn) {
+    filtroFase = fase;
+    $('.filter-btn').removeClass('active');
+    $(btn).addClass('active');
+    renderPredicciones(allData);
+}
+
+function renderPredicciones(data) {
+    const nombres = data.nombres;
+
+    // Header
+    let head = `<tr>
+        <th>Fecha</th><th>Hora</th><th>Fase</th>
+        <th colspan="2" class="text-center">Local</th>
+        <th class="text-center score-cell">Marcador</th>
+        <th colspan="2" class="text-center">Visitante</th>`;
+    nombres.forEach(n => head += `<th class="pred-cell">${n}</th>`);
+    head += '</tr>';
+    $('#thead-pred').html(head);
+
+    // Rows
+    const preds = filtroFase === 'Todos'
+        ? data.predicciones
+        : data.predicciones.filter(p => p.Fase === filtroFase);
+
+    let body = '';
+    preds.forEach(p => {
+        const marcador = p.Marcador || 'Por jugar';
+        const jugado   = marcador !== 'Por jugar';
+
+        let row = `<tr>
+            <td>${p.Fecha}</td>
+            <td>${p.Hora}</td>
+            <td><span class="badge bg-secondary badge-fase">${p.Fase}</span></td>
+            <td class="text-end">${p.Local}</td>
+            <td>${p.FlagLocal ? `<img src="${p.FlagLocal}" class="flag-icon" onerror="this.style.display='none'">` : ''}</td>
+            <td class="text-center score-cell ${jugado ? 'table-warning' : 'text-muted'}">${marcador}</td>
+            <td>${p.FlagVisitante ? `<img src="${p.FlagVisitante}" class="flag-icon" onerror="this.style.display='none'">` : ''}</td>
+            <td>${p.Visitante}</td>`;
+
+        nombres.forEach(n => {
+            const pred = p[n] || '-';
+            const cls  = jugado ? predClass(pred, marcador) : '';
+            row += `<td class="pred-cell ${cls}">${pred}</td>`;
         });
-        $('#tbody-pred').append(row);
+        row += '</tr>';
+        body += row;
+    });
+    $('#tbody-pred').html(body);
+
+    if (dtPred) { dtPred.destroy(); dtPred = null; }
+    dtPred = $('#table-pred').DataTable({
+        paging: false, searching: true, info: false, ordering: false,
+        language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json' }
+    });
+}
+
+function renderResumen(data) {
+    // Pivotar: conceptos = columnas, participantes = filas
+    // Extraer conceptos unicos en orden
+    const conceptosOrden = [
+        'Marcador Exacto','Ganador o empate Acertado','Gol Acertado','Prediccion unica',
+        'Predicción única','Dieciseisavos','Octavos de final','Cuartos de final','Semifinales','Final'
+    ];
+    const todosConceptos = [...new Set(data.resumen.map(r => r.Concepto))];
+    const conceptos = [
+        ...conceptosOrden.filter(c => todosConceptos.includes(c)),
+        ...todosConceptos.filter(c => !conceptosOrden.includes(c))
+    ];
+
+    // Pivotar datos: { participante: { concepto: {Aciertos,Regla,Subtotal} } }
+    const pivot = {};
+    data.resumen.forEach(r => {
+        if (!pivot[r.Participante]) pivot[r.Participante] = {};
+        pivot[r.Participante][r.Concepto] = { a: r.Aciertos, reg: r.Regla, sub: r.Subtotal };
     });
 
-    // Activar DataTables
-    $('table').DataTable({ "language": { "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json" } });
-});
+    // Calcular total por participante desde datos.totales
+    const totalesMap = {};
+    data.totales.forEach(t => totalesMap[t.Participante] = t.Total);
+
+    // Nombres ordenados por posicion (ya vienen ordenados en data.totales)
+    const nombresOrdenados = data.totales.map(t => t.Participante);
+
+    // Header — fila 1: concepto agrupado
+    let h1 = `<tr><th rowspan="2" class="text-start align-middle">Participante</th>`;
+    conceptos.forEach(c => {
+        const short = c.replace('Ganador o empate Acertado','Ganador/Empate')
+                       .replace('Gol Acertado','Gol')
+                       .replace('Predicción única','Único')
+                       .replace('Prediccion unica','Único')
+                       .replace('Dieciseisavos','16avos')
+                       .replace('Octavos de final','8vos')
+                       .replace('Cuartos de final','4tos');
+        h1 += `<th colspan="3" class="text-center">${short}</th>`;
+    });
+    h1 += `<th rowspan="2" class="align-middle">Total</th></tr>`;
+
+    // Header — fila 2: Ac / Pts por concepto
+    let h2 = '<tr>';
+    conceptos.forEach(() => {
+        h2 += `<th style="font-size:0.7rem;color:#adb5bd">Ac.</th>
+                <th style="font-size:0.7rem;color:#adb5bd">Regla</th>
+                <th style="font-size:0.7rem;color:#adb5bd">Pts</th>`;
+    });
+    h2 += '</tr>';
+    $('#thead-res').html(h1 + h2);
+
+    // Filas de participantes
+    const MEDALS = ['🥇','🥈','🥉'];
+    let body = '';
+    nombresOrdenados.forEach((nombre, idx) => {
+        const medal = idx < 3 ? MEDALS[idx] + ' ' : '';
+        let row = `<tr><td class="text-start fw-bold">${medal}${nombre}</td>`;
+        conceptos.forEach(c => {
+            const d = (pivot[nombre] || {})[c];
+            row += `<td>${d ? d.a : ''}</td>
+                    <td class="text-muted" style="font-size:0.75rem">${d ? d.reg : ''}</td>
+                    <td class="fw-bold">${d ? d.sub : ''}</td>`;
+        });
+        row += `<td class="fw-bold table-warning">${totalesMap[nombre] || ''}</td></tr>`;
+        body += row;
+    });
+    $('#tbody-res').html(body);
+}
+
+// ── Cargar datos ──────────────────────────────────────────────────────────────
+fetch('datos.json')
+    .then(r => { if (!r.ok) throw new Error('No se encontró datos.json'); return r.json(); })
+    .then(data => {
+        allData = data;
+        $('#update-time').text('Actualizado: ' + data.actualizado);
+        renderPosiciones(data);
+        renderFiltros(data);
+        renderPredicciones(data);
+        renderResumen(data);
+    })
+    .catch(err => {
+        $('body').prepend(`<div class="alert alert-danger m-3">
+            Error cargando datos: ${err.message}<br>
+            Asegúrate de que <code>datos.json</code> está en la misma carpeta que este archivo.
+        </div>`);
+    });
 </script>
 </body>
 </html>
