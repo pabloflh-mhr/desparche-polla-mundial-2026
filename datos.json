@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-06-27 16:20",
+  "actualizado": "2026-06-27 23:34",
   "nombres": [
     "Lindsay",
     "Angelica",
@@ -17,810 +17,197 @@
   "totales": [
     {
       "Participante": "Samuel",
-      "Total": "149"
-    },
-    {
-      "Participante": "Angelica",
-      "Total": "142"
+      "Total": "160"
     },
     {
       "Participante": "Lindsay",
-      "Total": "140"
+      "Total": "152"
     },
     {
       "Participante": "Mauricio",
-      "Total": "137"
+      "Total": "150"
+    },
+    {
+      "Participante": "Angelica",
+      "Total": "149"
     },
     {
       "Participante": "Marcela",
-      "Total": "131"
+      "Total": "139"
     },
     {
       "Participante": "Jorge",
-      "Total": "118"
+      "Total": "130"
     },
     {
       "Participante": "Julian",
-      "Total": "117"
+      "Total": "128"
     },
     {
       "Participante": "Pablo",
-      "Total": "112"
-    },
-    {
-      "Participante": "Cesar",
-      "Total": "107"
+      "Total": "115"
     },
     {
       "Participante": "Margarita",
-      "Total": "107"
+      "Total": "113"
+    },
+    {
+      "Participante": "Cesar",
+      "Total": "112"
     },
     {
       "Participante": "Yoshi",
-      "Total": "42"
+      "Total": "49"
     },
     {
       "Participante": "Gabriel",
       "Total": "2"
     }
   ],
-  "resumen": [
-    {
-      "Participante": "Lindsay",
-      "Concepto": "Marcador Exacto",
-      "Aciertos": "8",
-      "Regla": "5",
-      "Subtotal": "40"
-    },
-    {
-      "Participante": "Lindsay",
-      "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "31",
-      "Regla": "2",
-      "Subtotal": "62"
-    },
-    {
-      "Participante": "Lindsay",
-      "Concepto": "Gol Acertado",
-      "Aciertos": "32",
-      "Regla": "1",
-      "Subtotal": "32"
-    },
-    {
-      "Participante": "Lindsay",
-      "Concepto": "Predicción única",
-      "Aciertos": "3",
-      "Regla": "2",
-      "Subtotal": "6"
-    },
-    {
-      "Participante": "Lindsay",
-      "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (0/16)",
-      "Regla": "10",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Lindsay",
-      "Concepto": "Octavos de final",
-      "Aciertos": "0 (0/8)",
-      "Regla": "8",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Lindsay",
-      "Concepto": "Cuartos de final",
-      "Aciertos": "0 (0/4)",
-      "Regla": "4",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Lindsay",
-      "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Lindsay",
-      "Concepto": "Final",
-      "Aciertos": "0 (0/1)",
-      "Regla": "5",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Angelica",
-      "Concepto": "Marcador Exacto",
-      "Aciertos": "8",
-      "Regla": "5",
-      "Subtotal": "40"
-    },
-    {
-      "Participante": "Angelica",
-      "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "35",
-      "Regla": "2",
-      "Subtotal": "70"
-    },
-    {
-      "Participante": "Angelica",
-      "Concepto": "Gol Acertado",
-      "Aciertos": "30",
-      "Regla": "1",
-      "Subtotal": "30"
-    },
-    {
-      "Participante": "Angelica",
-      "Concepto": "Predicción única",
-      "Aciertos": "1",
-      "Regla": "2",
-      "Subtotal": "2"
-    },
-    {
-      "Participante": "Angelica",
-      "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (0/16)",
-      "Regla": "10",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Angelica",
-      "Concepto": "Octavos de final",
-      "Aciertos": "0 (0/8)",
-      "Regla": "8",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Angelica",
-      "Concepto": "Cuartos de final",
-      "Aciertos": "0 (0/4)",
-      "Regla": "4",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Angelica",
-      "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Angelica",
-      "Concepto": "Final",
-      "Aciertos": "0 (0/1)",
-      "Regla": "5",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Samuel",
-      "Concepto": "Marcador Exacto",
-      "Aciertos": "10",
-      "Regla": "5",
-      "Subtotal": "50"
-    },
-    {
-      "Participante": "Samuel",
-      "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "31",
-      "Regla": "2",
-      "Subtotal": "62"
-    },
-    {
-      "Participante": "Samuel",
-      "Concepto": "Gol Acertado",
-      "Aciertos": "31",
-      "Regla": "1",
-      "Subtotal": "31"
-    },
-    {
-      "Participante": "Samuel",
-      "Concepto": "Predicción única",
-      "Aciertos": "3",
-      "Regla": "2",
-      "Subtotal": "6"
-    },
-    {
-      "Participante": "Samuel",
-      "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (0/16)",
-      "Regla": "10",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Samuel",
-      "Concepto": "Octavos de final",
-      "Aciertos": "0 (0/8)",
-      "Regla": "8",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Samuel",
-      "Concepto": "Cuartos de final",
-      "Aciertos": "0 (0/4)",
-      "Regla": "4",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Samuel",
-      "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Samuel",
-      "Concepto": "Final",
-      "Aciertos": "0 (0/1)",
-      "Regla": "5",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Marcela",
-      "Concepto": "Marcador Exacto",
-      "Aciertos": "6",
-      "Regla": "5",
-      "Subtotal": "30"
-    },
-    {
-      "Participante": "Marcela",
-      "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "35",
-      "Regla": "2",
-      "Subtotal": "70"
-    },
-    {
-      "Participante": "Marcela",
-      "Concepto": "Gol Acertado",
-      "Aciertos": "31",
-      "Regla": "1",
-      "Subtotal": "31"
-    },
-    {
-      "Participante": "Marcela",
-      "Concepto": "Predicción única",
-      "Aciertos": "0",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Marcela",
-      "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (0/16)",
-      "Regla": "10",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Marcela",
-      "Concepto": "Octavos de final",
-      "Aciertos": "0 (0/8)",
-      "Regla": "8",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Marcela",
-      "Concepto": "Cuartos de final",
-      "Aciertos": "0 (0/4)",
-      "Regla": "4",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Marcela",
-      "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Marcela",
-      "Concepto": "Final",
-      "Aciertos": "0 (0/1)",
-      "Regla": "5",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Mauricio",
-      "Concepto": "Marcador Exacto",
-      "Aciertos": "10",
-      "Regla": "5",
-      "Subtotal": "50"
-    },
-    {
-      "Participante": "Mauricio",
-      "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "26",
-      "Regla": "2",
-      "Subtotal": "52"
-    },
-    {
-      "Participante": "Mauricio",
-      "Concepto": "Gol Acertado",
-      "Aciertos": "33",
-      "Regla": "1",
-      "Subtotal": "33"
-    },
-    {
-      "Participante": "Mauricio",
-      "Concepto": "Predicción única",
-      "Aciertos": "1",
-      "Regla": "2",
-      "Subtotal": "2"
-    },
-    {
-      "Participante": "Mauricio",
-      "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (0/16)",
-      "Regla": "10",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Mauricio",
-      "Concepto": "Octavos de final",
-      "Aciertos": "0 (0/8)",
-      "Regla": "8",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Mauricio",
-      "Concepto": "Cuartos de final",
-      "Aciertos": "0 (0/4)",
-      "Regla": "4",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Mauricio",
-      "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Mauricio",
-      "Concepto": "Final",
-      "Aciertos": "0 (0/1)",
-      "Regla": "5",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Julian",
-      "Concepto": "Marcador Exacto",
-      "Aciertos": "3",
-      "Regla": "5",
-      "Subtotal": "15"
-    },
-    {
-      "Participante": "Julian",
-      "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "34",
-      "Regla": "2",
-      "Subtotal": "68"
-    },
-    {
-      "Participante": "Julian",
-      "Concepto": "Gol Acertado",
-      "Aciertos": "34",
-      "Regla": "1",
-      "Subtotal": "34"
-    },
-    {
-      "Participante": "Julian",
-      "Concepto": "Predicción única",
-      "Aciertos": "0",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Julian",
-      "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (0/16)",
-      "Regla": "10",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Julian",
-      "Concepto": "Octavos de final",
-      "Aciertos": "0 (0/8)",
-      "Regla": "8",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Julian",
-      "Concepto": "Cuartos de final",
-      "Aciertos": "0 (0/4)",
-      "Regla": "4",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Julian",
-      "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Julian",
-      "Concepto": "Final",
-      "Aciertos": "0 (0/1)",
-      "Regla": "5",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Pablo",
-      "Concepto": "Marcador Exacto",
-      "Aciertos": "3",
-      "Regla": "5",
-      "Subtotal": "15"
-    },
-    {
-      "Participante": "Pablo",
-      "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "31",
-      "Regla": "2",
-      "Subtotal": "62"
-    },
-    {
-      "Participante": "Pablo",
-      "Concepto": "Gol Acertado",
-      "Aciertos": "33",
-      "Regla": "1",
-      "Subtotal": "33"
-    },
-    {
-      "Participante": "Pablo",
-      "Concepto": "Predicción única",
-      "Aciertos": "1",
-      "Regla": "2",
-      "Subtotal": "2"
-    },
-    {
-      "Participante": "Pablo",
-      "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (0/16)",
-      "Regla": "10",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Pablo",
-      "Concepto": "Octavos de final",
-      "Aciertos": "0 (0/8)",
-      "Regla": "8",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Pablo",
-      "Concepto": "Cuartos de final",
-      "Aciertos": "0 (0/4)",
-      "Regla": "4",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Pablo",
-      "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Pablo",
-      "Concepto": "Final",
-      "Aciertos": "0 (0/1)",
-      "Regla": "5",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Jorge",
-      "Concepto": "Marcador Exacto",
-      "Aciertos": "3",
-      "Regla": "5",
-      "Subtotal": "15"
-    },
-    {
-      "Participante": "Jorge",
-      "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "34",
-      "Regla": "2",
-      "Subtotal": "68"
-    },
-    {
-      "Participante": "Jorge",
-      "Concepto": "Gol Acertado",
-      "Aciertos": "35",
-      "Regla": "1",
-      "Subtotal": "35"
-    },
-    {
-      "Participante": "Jorge",
-      "Concepto": "Predicción única",
-      "Aciertos": "0",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Jorge",
-      "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (0/16)",
-      "Regla": "10",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Jorge",
-      "Concepto": "Octavos de final",
-      "Aciertos": "0 (0/8)",
-      "Regla": "8",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Jorge",
-      "Concepto": "Cuartos de final",
-      "Aciertos": "0 (0/4)",
-      "Regla": "4",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Jorge",
-      "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Jorge",
-      "Concepto": "Final",
-      "Aciertos": "0 (0/1)",
-      "Regla": "5",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Cesar",
-      "Concepto": "Marcador Exacto",
-      "Aciertos": "1",
-      "Regla": "5",
-      "Subtotal": "5"
-    },
-    {
-      "Participante": "Cesar",
-      "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "34",
-      "Regla": "2",
-      "Subtotal": "68"
-    },
-    {
-      "Participante": "Cesar",
-      "Concepto": "Gol Acertado",
-      "Aciertos": "32",
-      "Regla": "1",
-      "Subtotal": "32"
-    },
-    {
-      "Participante": "Cesar",
-      "Concepto": "Predicción única",
-      "Aciertos": "1",
-      "Regla": "2",
-      "Subtotal": "2"
-    },
-    {
-      "Participante": "Cesar",
-      "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (0/16)",
-      "Regla": "10",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Cesar",
-      "Concepto": "Octavos de final",
-      "Aciertos": "0 (0/8)",
-      "Regla": "8",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Cesar",
-      "Concepto": "Cuartos de final",
-      "Aciertos": "0 (0/4)",
-      "Regla": "4",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Cesar",
-      "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Cesar",
-      "Concepto": "Final",
-      "Aciertos": "0 (0/1)",
-      "Regla": "5",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Margarita",
-      "Concepto": "Marcador Exacto",
-      "Aciertos": "4",
-      "Regla": "5",
-      "Subtotal": "20"
-    },
-    {
-      "Participante": "Margarita",
-      "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "25",
-      "Regla": "2",
-      "Subtotal": "50"
-    },
-    {
-      "Participante": "Margarita",
-      "Concepto": "Gol Acertado",
-      "Aciertos": "33",
-      "Regla": "1",
-      "Subtotal": "33"
-    },
-    {
-      "Participante": "Margarita",
-      "Concepto": "Predicción única",
-      "Aciertos": "2",
-      "Regla": "2",
-      "Subtotal": "4"
-    },
-    {
-      "Participante": "Margarita",
-      "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (0/16)",
-      "Regla": "10",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Margarita",
-      "Concepto": "Octavos de final",
-      "Aciertos": "0 (0/8)",
-      "Regla": "8",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Margarita",
-      "Concepto": "Cuartos de final",
-      "Aciertos": "0 (0/4)",
-      "Regla": "4",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Margarita",
-      "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Margarita",
-      "Concepto": "Final",
-      "Aciertos": "0 (0/1)",
-      "Regla": "5",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Yoshi",
-      "Concepto": "Marcador Exacto",
-      "Aciertos": "1",
-      "Regla": "5",
-      "Subtotal": "5"
-    },
-    {
-      "Participante": "Yoshi",
-      "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "13",
-      "Regla": "2",
-      "Subtotal": "26"
-    },
-    {
-      "Participante": "Yoshi",
-      "Concepto": "Gol Acertado",
-      "Aciertos": "11",
-      "Regla": "1",
-      "Subtotal": "11"
-    },
-    {
-      "Participante": "Yoshi",
-      "Concepto": "Predicción única",
-      "Aciertos": "0",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Yoshi",
-      "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (0/16)",
-      "Regla": "10",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Yoshi",
-      "Concepto": "Octavos de final",
-      "Aciertos": "0 (0/8)",
-      "Regla": "8",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Yoshi",
-      "Concepto": "Cuartos de final",
-      "Aciertos": "0 (0/4)",
-      "Regla": "4",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Yoshi",
-      "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Yoshi",
-      "Concepto": "Final",
-      "Aciertos": "0 (0/1)",
-      "Regla": "5",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Gabriel",
-      "Concepto": "Marcador Exacto",
-      "Aciertos": "0",
-      "Regla": "5",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Gabriel",
-      "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "1",
-      "Regla": "2",
-      "Subtotal": "2"
-    },
-    {
-      "Participante": "Gabriel",
-      "Concepto": "Gol Acertado",
-      "Aciertos": "0",
-      "Regla": "1",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Gabriel",
-      "Concepto": "Predicción única",
-      "Aciertos": "0",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Gabriel",
-      "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (0/16)",
-      "Regla": "10",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Gabriel",
-      "Concepto": "Octavos de final",
-      "Aciertos": "0 (0/8)",
-      "Regla": "8",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Gabriel",
-      "Concepto": "Cuartos de final",
-      "Aciertos": "0 (0/4)",
-      "Regla": "4",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Gabriel",
-      "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
-      "Regla": "2",
-      "Subtotal": "0"
-    },
-    {
-      "Participante": "Gabriel",
-      "Concepto": "Final",
-      "Aciertos": "0 (0/1)",
-      "Regla": "5",
-      "Subtotal": "0"
+  "resumen_pivot": {
+    "Lindsay": {
+      "Marcador Exacto": "45",
+      "Ganador o empate Acertado": "68",
+      "Gol Acertado": "33",
+      "Predicción única": "6",
+      "Dieciseisavos": "0",
+      "Octavos de final": "0",
+      "Cuartos de final": "0",
+      "Semifinales": "0",
+      "Final": "0"
+    },
+    "Angelica": {
+      "Marcador Exacto": "40",
+      "Ganador o empate Acertado": "76",
+      "Gol Acertado": "31",
+      "Predicción única": "2",
+      "Dieciseisavos": "0",
+      "Octavos de final": "0",
+      "Cuartos de final": "0",
+      "Semifinales": "0",
+      "Final": "0"
+    },
+    "Samuel": {
+      "Marcador Exacto": "55",
+      "Ganador o empate Acertado": "68",
+      "Gol Acertado": "31",
+      "Predicción única": "6",
+      "Dieciseisavos": "0",
+      "Octavos de final": "0",
+      "Cuartos de final": "0",
+      "Semifinales": "0",
+      "Final": "0"
+    },
+    "Marcela": {
+      "Marcador Exacto": "35",
+      "Ganador o empate Acertado": "72",
+      "Gol Acertado": "32",
+      "Predicción única": "0",
+      "Dieciseisavos": "0",
+      "Octavos de final": "0",
+      "Cuartos de final": "0",
+      "Semifinales": "0",
+      "Final": "0"
+    },
+    "Mauricio": {
+      "Marcador Exacto": "60",
+      "Ganador o empate Acertado": "54",
+      "Gol Acertado": "34",
+      "Predicción única": "2",
+      "Dieciseisavos": "0",
+      "Octavos de final": "0",
+      "Cuartos de final": "0",
+      "Semifinales": "0",
+      "Final": "0"
+    },
+    "Julian": {
+      "Marcador Exacto": "15",
+      "Ganador o empate Acertado": "76",
+      "Gol Acertado": "37",
+      "Predicción única": "0",
+      "Dieciseisavos": "0",
+      "Octavos de final": "0",
+      "Cuartos de final": "0",
+      "Semifinales": "0",
+      "Final": "0"
+    },
+    "Pablo": {
+      "Marcador Exacto": "15",
+      "Ganador o empate Acertado": "64",
+      "Gol Acertado": "34",
+      "Predicción única": "2",
+      "Dieciseisavos": "0",
+      "Octavos de final": "0",
+      "Cuartos de final": "0",
+      "Semifinales": "0",
+      "Final": "0"
+    },
+    "Jorge": {
+      "Marcador Exacto": "25",
+      "Ganador o empate Acertado": "70",
+      "Gol Acertado": "35",
+      "Predicción única": "0",
+      "Dieciseisavos": "0",
+      "Octavos de final": "0",
+      "Cuartos de final": "0",
+      "Semifinales": "0",
+      "Final": "0"
+    },
+    "Cesar": {
+      "Marcador Exacto": "5",
+      "Ganador o empate Acertado": "70",
+      "Gol Acertado": "35",
+      "Predicción única": "2",
+      "Dieciseisavos": "0",
+      "Octavos de final": "0",
+      "Cuartos de final": "0",
+      "Semifinales": "0",
+      "Final": "0"
+    },
+    "Margarita": {
+      "Marcador Exacto": "20",
+      "Ganador o empate Acertado": "56",
+      "Gol Acertado": "33",
+      "Predicción única": "4",
+      "Dieciseisavos": "0",
+      "Octavos de final": "0",
+      "Cuartos de final": "0",
+      "Semifinales": "0",
+      "Final": "0"
+    },
+    "Yoshi": {
+      "Marcador Exacto": "5",
+      "Ganador o empate Acertado": "30",
+      "Gol Acertado": "14",
+      "Predicción única": "0",
+      "Dieciseisavos": "0",
+      "Octavos de final": "0",
+      "Cuartos de final": "0",
+      "Semifinales": "0",
+      "Final": "0"
+    },
+    "Gabriel": {
+      "Marcador Exacto": "0",
+      "Ganador o empate Acertado": "2",
+      "Gol Acertado": "0",
+      "Predicción única": "0",
+      "Dieciseisavos": "0",
+      "Octavos de final": "0",
+      "Cuartos de final": "0",
+      "Semifinales": "0",
+      "Final": "0"
     }
+  },
+  "conceptos": [
+    "Cuartos de final",
+    "Dieciseisavos",
+    "Final",
+    "Ganador o empate Acertado",
+    "Gol Acertado",
+    "Marcador Exacto",
+    "Octavos de final",
+    "Predicción única",
+    "Semifinales"
   ],
   "predicciones": [
     {
@@ -2273,6 +1660,94 @@
       "Cesar": "0-3",
       "Margarita": "1-0",
       "Yoshi": "2-2",
+      "Gabriel": ""
+    },
+    {
+      "Fecha": "Jun 27",
+      "Hora": "17:00",
+      "Fase": "Grupos",
+      "Local": "PAN",
+      "FlagLocal": "https://flagcdn.com/24x18/pa.png",
+      "Visitante": "ENG",
+      "FlagVisitante": "https://flagcdn.com/24x18/gb-eng.png",
+      "Marcador": "0-2",
+      "Lindsay": "0-3",
+      "Angelica": "0-3",
+      "Samuel": "0-2",
+      "Marcela": "0-2",
+      "Mauricio": "0-2",
+      "Julian": "0-4",
+      "Pablo": "0-3",
+      "Jorge": "0-2",
+      "Cesar": "4-0",
+      "Margarita": "2-3",
+      "Yoshi": "1-2",
+      "Gabriel": ""
+    },
+    {
+      "Fecha": "Jun 27",
+      "Hora": "17:00",
+      "Fase": "Grupos",
+      "Local": "CRO",
+      "FlagLocal": "https://flagcdn.com/24x18/hr.png",
+      "Visitante": "GHA",
+      "FlagVisitante": "https://flagcdn.com/24x18/gh.png",
+      "Marcador": "2-1",
+      "Lindsay": "2-1",
+      "Angelica": "1-0",
+      "Samuel": "1-0",
+      "Marcela": "1-1",
+      "Mauricio": "2-1",
+      "Julian": "3-1",
+      "Pablo": "1-2",
+      "Jorge": "2-1",
+      "Cesar": "0-1",
+      "Margarita": "1-2",
+      "Yoshi": "2-2",
+      "Gabriel": ""
+    },
+    {
+      "Fecha": "Jun 27",
+      "Hora": "19:30",
+      "Fase": "Grupos",
+      "Local": "COL",
+      "FlagLocal": "https://flagcdn.com/24x18/co.png",
+      "Visitante": "POR",
+      "FlagVisitante": "https://flagcdn.com/24x18/pt.png",
+      "Marcador": "0-0",
+      "Lindsay": "1-1",
+      "Angelica": "1-2",
+      "Samuel": "1-1",
+      "Marcela": "3-2",
+      "Mauricio": "1-1",
+      "Julian": "2-2",
+      "Pablo": "2-1",
+      "Jorge": "1-1",
+      "Cesar": "3-0",
+      "Margarita": "2-2",
+      "Yoshi": "3-2",
+      "Gabriel": ""
+    },
+    {
+      "Fecha": "Jun 27",
+      "Hora": "19:30",
+      "Fase": "Grupos",
+      "Local": "COD",
+      "FlagLocal": "https://flagcdn.com/24x18/cd.png",
+      "Visitante": "UZB",
+      "FlagVisitante": "",
+      "Marcador": "3-1",
+      "Lindsay": "2-0",
+      "Angelica": "1-0",
+      "Samuel": "1-0",
+      "Marcela": "1-0",
+      "Mauricio": "1-1",
+      "Julian": "4-1",
+      "Pablo": "",
+      "Jorge": "0-2",
+      "Cesar": "3-0",
+      "Margarita": "1-0",
+      "Yoshi": "2-1",
       "Gabriel": ""
     }
   ]
