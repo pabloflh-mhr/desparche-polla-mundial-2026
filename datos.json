@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-06-28 18:39",
+  "actualizado": "2026-06-30 08:23",
   "nombres": [
     "Lindsay",
     "Angelica",
@@ -17,47 +17,47 @@
   "totales": [
     {
       "Participante": "Samuel",
-      "Total": "171"
+      "Total": "173"
     },
     {
       "Participante": "Lindsay",
-      "Total": "158"
+      "Total": "162"
     },
     {
       "Participante": "Angelica",
-      "Total": "155"
+      "Total": "162"
     },
     {
       "Participante": "Mauricio",
-      "Total": "154"
+      "Total": "159"
     },
     {
       "Participante": "Marcela",
-      "Total": "146"
+      "Total": "155"
     },
     {
       "Participante": "Jorge",
-      "Total": "135"
+      "Total": "141"
     },
     {
       "Participante": "Julian",
-      "Total": "134"
+      "Total": "140"
     },
     {
       "Participante": "Pablo",
-      "Total": "123"
+      "Total": "132"
     },
     {
       "Participante": "Margarita",
-      "Total": "119"
+      "Total": "125"
     },
     {
       "Participante": "Cesar",
-      "Total": "114"
+      "Total": "115"
     },
     {
       "Participante": "Yoshi",
-      "Total": "53"
+      "Total": "55"
     },
     {
       "Participante": "Gabriel",
@@ -75,16 +75,16 @@
     {
       "Participante": "Lindsay",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "37",
+      "Aciertos": "38",
       "Regla": "2",
-      "Subtotal": "74"
+      "Subtotal": "76"
     },
     {
       "Participante": "Lindsay",
       "Concepto": "Gol Acertado",
-      "Aciertos": "33",
+      "Aciertos": "35",
       "Regla": "1",
-      "Subtotal": "33"
+      "Subtotal": "35"
     },
     {
       "Participante": "Lindsay",
@@ -96,7 +96,7 @@
     {
       "Participante": "Lindsay",
       "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (1/16)",
+      "Aciertos": "0 (2/16)",
       "Regla": "10",
       "Subtotal": "0"
     },
@@ -131,9 +131,9 @@
     {
       "Participante": "Angelica",
       "Concepto": "Marcador Exacto",
-      "Aciertos": "8",
+      "Aciertos": "9",
       "Regla": "5",
-      "Subtotal": "40"
+      "Subtotal": "45"
     },
     {
       "Participante": "Angelica",
@@ -145,9 +145,9 @@
     {
       "Participante": "Angelica",
       "Concepto": "Gol Acertado",
-      "Aciertos": "33",
+      "Aciertos": "35",
       "Regla": "1",
-      "Subtotal": "33"
+      "Subtotal": "35"
     },
     {
       "Participante": "Angelica",
@@ -159,7 +159,7 @@
     {
       "Participante": "Angelica",
       "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (1/16)",
+      "Aciertos": "0 (2/16)",
       "Regla": "10",
       "Subtotal": "0"
     },
@@ -208,9 +208,9 @@
     {
       "Participante": "Samuel",
       "Concepto": "Gol Acertado",
-      "Aciertos": "31",
+      "Aciertos": "33",
       "Regla": "1",
-      "Subtotal": "31"
+      "Subtotal": "33"
     },
     {
       "Participante": "Samuel",
@@ -222,7 +222,7 @@
     {
       "Participante": "Samuel",
       "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (1/16)",
+      "Aciertos": "0 (2/16)",
       "Regla": "10",
       "Subtotal": "0"
     },
@@ -257,23 +257,23 @@
     {
       "Participante": "Marcela",
       "Concepto": "Marcador Exacto",
-      "Aciertos": "7",
+      "Aciertos": "8",
       "Regla": "5",
-      "Subtotal": "35"
+      "Subtotal": "40"
     },
     {
       "Participante": "Marcela",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "39",
+      "Aciertos": "40",
       "Regla": "2",
-      "Subtotal": "78"
+      "Subtotal": "80"
     },
     {
       "Participante": "Marcela",
       "Concepto": "Gol Acertado",
-      "Aciertos": "33",
+      "Aciertos": "35",
       "Regla": "1",
-      "Subtotal": "33"
+      "Subtotal": "35"
     },
     {
       "Participante": "Marcela",
@@ -285,7 +285,7 @@
     {
       "Participante": "Marcela",
       "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (1/16)",
+      "Aciertos": "0 (3/16)",
       "Regla": "10",
       "Subtotal": "0"
     },
@@ -327,16 +327,16 @@
     {
       "Participante": "Mauricio",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "29",
+      "Aciertos": "31",
       "Regla": "2",
-      "Subtotal": "58"
+      "Subtotal": "62"
     },
     {
       "Participante": "Mauricio",
       "Concepto": "Gol Acertado",
-      "Aciertos": "34",
+      "Aciertos": "35",
       "Regla": "1",
-      "Subtotal": "34"
+      "Subtotal": "35"
     },
     {
       "Participante": "Mauricio",
@@ -348,7 +348,7 @@
     {
       "Participante": "Mauricio",
       "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (1/16)",
+      "Aciertos": "0 (2/16)",
       "Regla": "10",
       "Subtotal": "0"
     },
@@ -390,16 +390,16 @@
     {
       "Participante": "Julian",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "41",
+      "Aciertos": "43",
       "Regla": "2",
-      "Subtotal": "82"
+      "Subtotal": "86"
     },
     {
       "Participante": "Julian",
       "Concepto": "Gol Acertado",
-      "Aciertos": "37",
+      "Aciertos": "39",
       "Regla": "1",
-      "Subtotal": "37"
+      "Subtotal": "39"
     },
     {
       "Participante": "Julian",
@@ -411,7 +411,7 @@
     {
       "Participante": "Julian",
       "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (1/16)",
+      "Aciertos": "0 (2/16)",
       "Regla": "10",
       "Subtotal": "0"
     },
@@ -446,23 +446,23 @@
     {
       "Participante": "Pablo",
       "Concepto": "Marcador Exacto",
-      "Aciertos": "3",
+      "Aciertos": "4",
       "Regla": "5",
-      "Subtotal": "15"
+      "Subtotal": "20"
     },
     {
       "Participante": "Pablo",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "35",
+      "Aciertos": "36",
       "Regla": "2",
-      "Subtotal": "70"
+      "Subtotal": "72"
     },
     {
       "Participante": "Pablo",
       "Concepto": "Gol Acertado",
-      "Aciertos": "36",
+      "Aciertos": "38",
       "Regla": "1",
-      "Subtotal": "36"
+      "Subtotal": "38"
     },
     {
       "Participante": "Pablo",
@@ -474,7 +474,7 @@
     {
       "Participante": "Pablo",
       "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (1/16)",
+      "Aciertos": "0 (2/16)",
       "Regla": "10",
       "Subtotal": "0"
     },
@@ -509,9 +509,9 @@
     {
       "Participante": "Jorge",
       "Concepto": "Marcador Exacto",
-      "Aciertos": "5",
+      "Aciertos": "6",
       "Regla": "5",
-      "Subtotal": "25"
+      "Subtotal": "30"
     },
     {
       "Participante": "Jorge",
@@ -523,9 +523,9 @@
     {
       "Participante": "Jorge",
       "Concepto": "Gol Acertado",
-      "Aciertos": "36",
+      "Aciertos": "37",
       "Regla": "1",
-      "Subtotal": "36"
+      "Subtotal": "37"
     },
     {
       "Participante": "Jorge",
@@ -537,7 +537,7 @@
     {
       "Participante": "Jorge",
       "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (1/16)",
+      "Aciertos": "0 (2/16)",
       "Regla": "10",
       "Subtotal": "0"
     },
@@ -586,9 +586,9 @@
     {
       "Participante": "Cesar",
       "Concepto": "Gol Acertado",
-      "Aciertos": "35",
+      "Aciertos": "36",
       "Regla": "1",
-      "Subtotal": "35"
+      "Subtotal": "36"
     },
     {
       "Participante": "Cesar",
@@ -600,7 +600,7 @@
     {
       "Participante": "Cesar",
       "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (0/16)",
+      "Aciertos": "0 (1/16)",
       "Regla": "10",
       "Subtotal": "0"
     },
@@ -635,9 +635,9 @@
     {
       "Participante": "Margarita",
       "Concepto": "Marcador Exacto",
-      "Aciertos": "4",
+      "Aciertos": "5",
       "Regla": "5",
-      "Subtotal": "20"
+      "Subtotal": "25"
     },
     {
       "Participante": "Margarita",
@@ -649,9 +649,9 @@
     {
       "Participante": "Margarita",
       "Concepto": "Gol Acertado",
-      "Aciertos": "33",
+      "Aciertos": "34",
       "Regla": "1",
-      "Subtotal": "33"
+      "Subtotal": "34"
     },
     {
       "Participante": "Margarita",
@@ -663,7 +663,7 @@
     {
       "Participante": "Margarita",
       "Concepto": "Dieciseisavos",
-      "Aciertos": "0 (1/16)",
+      "Aciertos": "0 (2/16)",
       "Regla": "10",
       "Subtotal": "0"
     },
@@ -712,9 +712,9 @@
     {
       "Participante": "Yoshi",
       "Concepto": "Gol Acertado",
-      "Aciertos": "14",
+      "Aciertos": "16",
       "Regla": "1",
-      "Subtotal": "14"
+      "Subtotal": "16"
     },
     {
       "Participante": "Yoshi",
@@ -2427,6 +2427,72 @@
       "Cesar": "2-0",
       "Margarita": "1-2",
       "Yoshi": "1-3",
+      "Gabriel": ""
+    },
+    {
+      "Fecha": "Jun 29",
+      "Hora": "13:00",
+      "Fase": "16savos de final",
+      "Local": "BRA",
+      "FlagLocal": "https://flagcdn.com/24x18/br.png",
+      "Visitante": "JPN",
+      "FlagVisitante": "https://flagcdn.com/24x18/jp.png",
+      "Marcador": "2-1",
+      "Lindsay": "2-0",
+      "Angelica": "2-1",
+      "Samuel": "1-1",
+      "Marcela": "2-0",
+      "Mauricio": "3-1",
+      "Julian": "3-1",
+      "Pablo": "2-0",
+      "Jorge": "2-1",
+      "Cesar": "",
+      "Margarita": "2-1",
+      "Yoshi": "2-3",
+      "Gabriel": ""
+    },
+    {
+      "Fecha": "Jun 29",
+      "Hora": "16:30",
+      "Fase": "16savos de final",
+      "Local": "GER",
+      "FlagLocal": "https://flagcdn.com/24x18/de.png",
+      "Visitante": "PAR",
+      "FlagVisitante": "https://flagcdn.com/24x18/py.png",
+      "Marcador": "1-1",
+      "Lindsay": "2-0",
+      "Angelica": "2-1",
+      "Samuel": "2-0",
+      "Marcela": "3-1",
+      "Mauricio": "2-0",
+      "Julian": "4-1",
+      "Pablo": "2-1",
+      "Jorge": "2-0",
+      "Cesar": "3-0",
+      "Margarita": "2-0",
+      "Yoshi": "4-1",
+      "Gabriel": ""
+    },
+    {
+      "Fecha": "Jun 29",
+      "Hora": "21:00",
+      "Fase": "16savos de final",
+      "Local": "NED",
+      "FlagLocal": "https://flagcdn.com/24x18/nl.png",
+      "Visitante": "MAR",
+      "FlagVisitante": "https://flagcdn.com/24x18/ma.png",
+      "Marcador": "1-1",
+      "Lindsay": "2-1",
+      "Angelica": "2-1",
+      "Samuel": "1-0",
+      "Marcela": "1-1",
+      "Mauricio": "2-2",
+      "Julian": "2-2",
+      "Pablo": "1-1",
+      "Jorge": "2-1",
+      "Cesar": "1-2",
+      "Margarita": "2-1",
+      "Yoshi": "3-2",
       "Gabriel": ""
     }
   ]
