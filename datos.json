@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-06 22:11",
+  "actualizado": "2026-07-07 21:59",
   "nombres": [
     "Lindsay",
     "Angelica",
@@ -17,47 +17,47 @@
   "totales": [
     {
       "Participante": "Samuel",
-      "Total": "213"
+      "Total": "217"
     },
     {
       "Participante": "Angelica",
-      "Total": "209"
+      "Total": "211"
     },
     {
       "Participante": "Mauricio",
-      "Total": "193"
+      "Total": "195"
     },
     {
       "Participante": "Lindsay",
-      "Total": "191"
+      "Total": "194"
     },
     {
       "Participante": "Marcela",
-      "Total": "191"
+      "Total": "193"
     },
     {
       "Participante": "Jorge",
-      "Total": "183"
+      "Total": "186"
     },
     {
       "Participante": "Julian",
-      "Total": "177"
+      "Total": "179"
     },
     {
       "Participante": "Pablo",
-      "Total": "167"
+      "Total": "168"
     },
     {
       "Participante": "Cesar",
-      "Total": "160"
+      "Total": "161"
     },
     {
       "Participante": "Margarita",
-      "Total": "152"
+      "Total": "153"
     },
     {
       "Participante": "Yoshi",
-      "Total": "86"
+      "Total": "89"
     },
     {
       "Participante": "Gabriel",
@@ -75,16 +75,16 @@
     {
       "Participante": "Lindsay",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "44",
+      "Aciertos": "45",
       "Regla": "2",
-      "Subtotal": "88"
+      "Subtotal": "90"
     },
     {
       "Participante": "Lindsay",
       "Concepto": "Gol Acertado",
-      "Aciertos": "42",
+      "Aciertos": "43",
       "Regla": "1",
-      "Subtotal": "42"
+      "Subtotal": "43"
     },
     {
       "Participante": "Lindsay",
@@ -103,7 +103,7 @@
     {
       "Participante": "Lindsay",
       "Concepto": "Octavos de final",
-      "Aciertos": "0 (3/8)",
+      "Aciertos": "0 (4/8)",
       "Regla": "8",
       "Subtotal": "0"
     },
@@ -138,9 +138,9 @@
     {
       "Participante": "Angelica",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "52",
+      "Aciertos": "53",
       "Regla": "2",
-      "Subtotal": "104"
+      "Subtotal": "106"
     },
     {
       "Participante": "Angelica",
@@ -166,7 +166,7 @@
     {
       "Participante": "Angelica",
       "Concepto": "Octavos de final",
-      "Aciertos": "0 (4/8)",
+      "Aciertos": "0 (5/8)",
       "Regla": "8",
       "Subtotal": "0"
     },
@@ -201,9 +201,9 @@
     {
       "Participante": "Samuel",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "45",
+      "Aciertos": "47",
       "Regla": "2",
-      "Subtotal": "90"
+      "Subtotal": "94"
     },
     {
       "Participante": "Samuel",
@@ -229,7 +229,7 @@
     {
       "Participante": "Samuel",
       "Concepto": "Octavos de final",
-      "Aciertos": "0 (4/8)",
+      "Aciertos": "0 (5/8)",
       "Regla": "8",
       "Subtotal": "0"
     },
@@ -264,9 +264,9 @@
     {
       "Participante": "Marcela",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "49",
+      "Aciertos": "50",
       "Regla": "2",
-      "Subtotal": "98"
+      "Subtotal": "100"
     },
     {
       "Participante": "Marcela",
@@ -292,7 +292,7 @@
     {
       "Participante": "Marcela",
       "Concepto": "Octavos de final",
-      "Aciertos": "0 (3/8)",
+      "Aciertos": "0 (4/8)",
       "Regla": "8",
       "Subtotal": "0"
     },
@@ -327,9 +327,9 @@
     {
       "Participante": "Mauricio",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "40",
+      "Aciertos": "41",
       "Regla": "2",
-      "Subtotal": "80"
+      "Subtotal": "82"
     },
     {
       "Participante": "Mauricio",
@@ -355,7 +355,7 @@
     {
       "Participante": "Mauricio",
       "Concepto": "Octavos de final",
-      "Aciertos": "0 (4/8)",
+      "Aciertos": "0 (5/8)",
       "Regla": "8",
       "Subtotal": "0"
     },
@@ -390,9 +390,9 @@
     {
       "Participante": "Julian",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "52",
+      "Aciertos": "53",
       "Regla": "2",
-      "Subtotal": "104"
+      "Subtotal": "106"
     },
     {
       "Participante": "Julian",
@@ -418,7 +418,7 @@
     {
       "Participante": "Julian",
       "Concepto": "Octavos de final",
-      "Aciertos": "0 (5/8)",
+      "Aciertos": "0 (6/8)",
       "Regla": "8",
       "Subtotal": "0"
     },
@@ -460,9 +460,9 @@
     {
       "Participante": "Pablo",
       "Concepto": "Gol Acertado",
-      "Aciertos": "48",
+      "Aciertos": "49",
       "Regla": "1",
-      "Subtotal": "48"
+      "Subtotal": "49"
     },
     {
       "Participante": "Pablo",
@@ -516,16 +516,16 @@
     {
       "Participante": "Jorge",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "51",
+      "Aciertos": "52",
       "Regla": "2",
-      "Subtotal": "102"
+      "Subtotal": "104"
     },
     {
       "Participante": "Jorge",
       "Concepto": "Gol Acertado",
-      "Aciertos": "46",
+      "Aciertos": "47",
       "Regla": "1",
-      "Subtotal": "46"
+      "Subtotal": "47"
     },
     {
       "Participante": "Jorge",
@@ -544,7 +544,7 @@
     {
       "Participante": "Jorge",
       "Concepto": "Octavos de final",
-      "Aciertos": "0 (5/8)",
+      "Aciertos": "0 (6/8)",
       "Regla": "8",
       "Subtotal": "0"
     },
@@ -586,9 +586,9 @@
     {
       "Participante": "Cesar",
       "Concepto": "Gol Acertado",
-      "Aciertos": "44",
+      "Aciertos": "45",
       "Regla": "1",
-      "Subtotal": "44"
+      "Subtotal": "45"
     },
     {
       "Participante": "Cesar",
@@ -649,9 +649,9 @@
     {
       "Participante": "Margarita",
       "Concepto": "Gol Acertado",
-      "Aciertos": "42",
+      "Aciertos": "43",
       "Regla": "1",
-      "Subtotal": "42"
+      "Subtotal": "43"
     },
     {
       "Participante": "Margarita",
@@ -705,16 +705,16 @@
     {
       "Participante": "Yoshi",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "27",
+      "Aciertos": "28",
       "Regla": "2",
-      "Subtotal": "54"
+      "Subtotal": "56"
     },
     {
       "Participante": "Yoshi",
       "Concepto": "Gol Acertado",
-      "Aciertos": "27",
+      "Aciertos": "28",
       "Regla": "1",
-      "Subtotal": "27"
+      "Subtotal": "28"
     },
     {
       "Participante": "Yoshi",
@@ -733,7 +733,7 @@
     {
       "Participante": "Yoshi",
       "Concepto": "Octavos de final",
-      "Aciertos": "0 (2/8)",
+      "Aciertos": "0 (3/8)",
       "Regla": "8",
       "Subtotal": "0"
     },
@@ -2889,6 +2889,50 @@
       "Cesar": "2-1",
       "Margarita": "0-1",
       "Yoshi": "2-1",
+      "Gabriel": ""
+    },
+    {
+      "Fecha": "Jul 7",
+      "Hora": "12:00",
+      "Fase": "Octavos de final",
+      "Local": "ARG",
+      "FlagLocal": "https://flagcdn.com/24x18/ar.png",
+      "Visitante": "EGY",
+      "FlagVisitante": "https://flagcdn.com/24x18/eg.png",
+      "Marcador": "3-2",
+      "Lindsay": "2-0",
+      "Angelica": "2-1",
+      "Samuel": "2-0",
+      "Marcela": "2-0",
+      "Mauricio": "2-1",
+      "Julian": "2-1",
+      "Pablo": "",
+      "Jorge": "3-1",
+      "Cesar": "1-2",
+      "Margarita": "1-2",
+      "Yoshi": "3-0",
+      "Gabriel": ""
+    },
+    {
+      "Fecha": "Jul 7",
+      "Hora": "16:00",
+      "Fase": "Octavos de final",
+      "Local": "SUI",
+      "FlagLocal": "https://flagcdn.com/24x18/ch.png",
+      "Visitante": "COL",
+      "FlagVisitante": "https://flagcdn.com/24x18/co.png",
+      "Marcador": "0-0",
+      "Lindsay": "0-1",
+      "Angelica": "1-2",
+      "Samuel": "1-1",
+      "Marcela": "1-3",
+      "Mauricio": "1-2",
+      "Julian": "1-2",
+      "Pablo": "0-2",
+      "Jorge": "1-2",
+      "Cesar": "1-3",
+      "Margarita": "1-3",
+      "Yoshi": "1-2",
       "Gabriel": ""
     }
   ]
