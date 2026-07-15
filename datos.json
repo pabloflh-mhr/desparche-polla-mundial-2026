@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-13 19:37",
+  "actualizado": "2026-07-14 22:43",
   "nombres": [
     "Lindsay",
     "Angelica",
@@ -21,7 +21,7 @@
     },
     {
       "Participante": "Angelica",
-      "Total": "231"
+      "Total": "234"
     },
     {
       "Participante": "Marcela",
@@ -32,12 +32,12 @@
       "Total": "201"
     },
     {
-      "Participante": "Lindsay",
-      "Total": "198"
+      "Participante": "Jorge",
+      "Total": "200"
     },
     {
-      "Participante": "Jorge",
-      "Total": "197"
+      "Participante": "Lindsay",
+      "Total": "198"
     },
     {
       "Participante": "Julian",
@@ -138,16 +138,16 @@
     {
       "Participante": "Angelica",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "55",
+      "Aciertos": "56",
       "Regla": "2",
-      "Subtotal": "110"
+      "Subtotal": "112"
     },
     {
       "Participante": "Angelica",
       "Concepto": "Gol Acertado",
-      "Aciertos": "45",
+      "Aciertos": "46",
       "Regla": "1",
-      "Subtotal": "45"
+      "Subtotal": "46"
     },
     {
       "Participante": "Angelica",
@@ -180,7 +180,7 @@
     {
       "Participante": "Angelica",
       "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
+      "Aciertos": "0 (1/2)",
       "Regla": "2",
       "Subtotal": "0"
     },
@@ -516,16 +516,16 @@
     {
       "Participante": "Jorge",
       "Concepto": "Ganador o empate Acertado",
-      "Aciertos": "54",
+      "Aciertos": "55",
       "Regla": "2",
-      "Subtotal": "108"
+      "Subtotal": "110"
     },
     {
       "Participante": "Jorge",
       "Concepto": "Gol Acertado",
-      "Aciertos": "49",
+      "Aciertos": "50",
       "Regla": "1",
-      "Subtotal": "49"
+      "Subtotal": "50"
     },
     {
       "Participante": "Jorge",
@@ -558,7 +558,7 @@
     {
       "Participante": "Jorge",
       "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
+      "Aciertos": "0 (1/2)",
       "Regla": "2",
       "Subtotal": "0"
     },
@@ -684,7 +684,7 @@
     {
       "Participante": "Margarita",
       "Concepto": "Semifinales",
-      "Aciertos": "0 (0/2)",
+      "Aciertos": "0 (1/2)",
       "Regla": "2",
       "Subtotal": "0"
     },
@@ -2849,28 +2849,6 @@
     },
     {
       "Fecha": "Jul 6",
-      "Hora": "15:00",
-      "Fase": "Octavos de final",
-      "Local": "ESP",
-      "FlagLocal": "https://flagcdn.com/24x18/es.png",
-      "Visitante": "POR",
-      "FlagVisitante": "https://flagcdn.com/24x18/pt.png",
-      "Marcador": "1-0",
-      "Lindsay": "2-1",
-      "Angelica": "2-1",
-      "Samuel": "2-1",
-      "Marcela": "2-1",
-      "Mauricio": "2-0",
-      "Julian": "3-1",
-      "Pablo": "3-1",
-      "Jorge": "2-1",
-      "Cesar": "2-1",
-      "Margarita": "2-0",
-      "Yoshi": "2-3",
-      "Gabriel": ""
-    },
-    {
-      "Fecha": "Jul 6",
       "Hora": "20:00",
       "Fase": "Octavos de final",
       "Local": "BEL",
@@ -3021,6 +2999,50 @@
       "Cesar": "0-1",
       "Margarita": "1-2",
       "Yoshi": "1-2",
+      "Gabriel": ""
+    },
+    {
+      "Fecha": "Jul 14",
+      "Hora": "15:00",
+      "Fase": "Semifinal",
+      "Local": "FRA",
+      "FlagLocal": "https://flagcdn.com/24x18/fr.png",
+      "Visitante": "ESP",
+      "FlagVisitante": "https://flagcdn.com/24x18/es.png",
+      "Marcador": "0-2",
+      "Lindsay": "2-1",
+      "Angelica": "1-2",
+      "Samuel": "2-1",
+      "Marcela": "2-1",
+      "Mauricio": "",
+      "Julian": "3-1",
+      "Pablo": "2-1",
+      "Jorge": "1-2",
+      "Cesar": "3-1",
+      "Margarita": "1-1",
+      "Yoshi": "3-1",
+      "Gabriel": ""
+    },
+    {
+      "Fecha": "Jul 19",
+      "Hora": "15:00",
+      "Fase": "Octavos de final",
+      "Local": "ESP",
+      "FlagLocal": "https://flagcdn.com/24x18/es.png",
+      "Visitante": "POR",
+      "FlagVisitante": "https://flagcdn.com/24x18/pt.png",
+      "Marcador": "1-0",
+      "Lindsay": "2-1",
+      "Angelica": "2-1",
+      "Samuel": "2-1",
+      "Marcela": "2-1",
+      "Mauricio": "2-0",
+      "Julian": "3-1",
+      "Pablo": "3-1",
+      "Jorge": "2-1",
+      "Cesar": "2-1",
+      "Margarita": "2-0",
+      "Yoshi": "2-3",
       "Gabriel": ""
     }
   ]
