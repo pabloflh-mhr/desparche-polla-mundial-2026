@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="UTF-8">
+<title>La Polla Mundial 2026 — Carrera de Posiciones</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg-0:#030806;
+  --bg-1:#071812;
+  --panel:#081F17;
+  --panel-2:#0B281E;
+  --track-bg: rgba(255,255,255,0.045);
+  --line: rgba(255,255,255,0.07);
+  --line-strong: rgba(255,255,255,0.14);
+  --cream:#F4F1E4;
+  --cream-dim: rgba(244,241,228,0.56);
+  --gold:#FFC94A;
+  --gold-dim: rgba(255,201,74,0.22);
+  --miss:#4B5951;
+  --pitch-stripe: rgba(255,255,255,0.018);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:transparent;}
+body{
+  font-family:'Space Grotesk', sans-serif;
+  color:var(--cream);
+  background:
+    repeating-linear-gradient(90deg, var(--pitch-stripe) 0 60px, transparent 60px 120px),
+    radial-gradient(ellipse at 50% -10%, #0C2B1F 0%, var(--bg-1) 45%, var(--bg-0) 100%);
+  min-height:100vh;
+  padding:18px 14px 28px;
+}
+.wrap{max-width:820px;margin:0 auto;}
+
+/* ---------- Header / Jumbotron ---------- */
+.jumbo{
+  border:1px solid var(--line-strong);
+  border-radius:14px;
+  background:linear-gradient(180deg, var(--panel-2), var(--panel));
+  padding:18px 20px 16px;
+  position:relative;
+  overflow:hidden;
+  box-shadow: 0 24px 60px -28px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.jumbo::before{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(circle at 15% 0%, rgba(255,201,74,0.08), transparent 45%);
+  pointer-events:none;
+}
+.eyebrow{
+  font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--gold); font-weight:600; margin:0 0 4px;
+}
+h1{
+  font-family:'Anton', sans-serif;
+  font-weight:400;
+  font-size:clamp(26px, 6vw, 40px);
+  letter-spacing:.01em;
+  margin:0 0 2px;
+  line-height:1;
+  color:var(--cream);
+  text-shadow: 0 2px 0 rgba(0,0,0,0.5);
+}
+.sub{font-size:13px; color:var(--cream-dim); margin:0;}
+
+/* ---------- Broadcast Deck Ticker ---------- */
+.ticker{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns: auto 1fr auto;
+  align-items:center;
+  gap:14px;
+  background:var(--bg-0);
+  border:1px solid var(--line-strong);
+  border-radius:10px;
+  padding:0;
+  min-height:70px;
+  overflow:hidden;
+  position:relative;
+}
+.ticker::before{
+  content:"";
+  position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:var(--gold); opacity:0.7;
+}
+.deck-meta{
+  display:flex; flex-direction:column; gap:3px;
+  padding:12px 8px 12px 18px;
+  border-right:1px solid var(--line);
+  min-width:96px;
+}
+.ticker-fase{
+  font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); font-weight:600;
+}
+.ticker-fecha{font-size:11px; color:var(--cream-dim); font-variant-numeric: tabular-nums;}
+.deck-score{
+  padding:12px 4px;
+  display:flex; align-items:center; justify-content:center;
+}
+.ticker-match{
+  font-family:'Anton', sans-serif; font-weight:400;
+  font-size:clamp(16px,4vw,24px);
+  display:flex; align-items:center; gap:9px; letter-spacing:.02em;
+  font-variant-numeric: tabular-nums;
+  white-space:nowrap;
+}
+.ticker-score{
+  background:var(--panel-2);
+  border:1px solid var(--line-strong);
+  border-radius:6px;
+  padding:3px 11px;
+  color:var(--gold);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+.deck-note{
+  font-size:11.5px; color:var(--cream-dim); text-align:right; max-width:210px; line-height:1.35;
+  padding:12px 18px 12px 8px;
+  border-left:1px solid var(--line);
+}
+.deck-note b{color:var(--gold); font-weight:600;}
+.ticker.bonus{
+  background: linear-gradient(90deg, rgba(255,201,74,0.10), var(--bg-0) 55%);
+}
+.ticker.bonus::before{ background:var(--gold); opacity:1; box-shadow:0 0 12px var(--gold); }
+
+@media (max-width:460px){
+  .ticker{grid-template-columns: auto 1fr;}
+  .deck-note{display:none;}
+}
+
+/* ---------- Bars ---------- */
+.board{
+  margin-top:14px;
+  border:1px solid var(--line-strong);
+  border-radius:14px;
+  background:var(--panel);
+  padding:14px 16px 10px;
+  box-shadow: 0 24px 60px -30px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.03);
+  position:relative;
+  overflow:hidden;
+}
+.track{
+  position:absolute;
+  left:16px; right:16px;
+  height:38px;
+  background:var(--track-bg);
+  border-radius:8px;
+  border:1px solid var(--line);
+}
+.row{
+  position:absolute;
+  top:14px; left:16px; right:16px;
+  height:38px;
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.row-inner{
+  position:relative; height:100%;
+  display:flex; align-items:center;
+}
+.bar{
+  height:100%;
+  border-radius:8px;
+  display:flex; align-items:center;
+  padding:0 10px;
+  transition: width 900ms cubic-bezier(0.16, 1, 0.3, 1), background-color 400ms;
+  min-width:34px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:
+    inset 0 -3px 0 rgba(0,0,0,0.28),
+    inset 0 1px 0 rgba(255,255,255,0.32),
+    0 6px 16px -6px rgba(0,0,0,0.6);
+}
+.bar::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.02) 38%, rgba(0,0,0,0.12) 100%);
+  pointer-events:none;
+}
+.bar.pulse{ animation: pulseBar 900ms cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes pulseBar{
+  0%{ filter:brightness(1); }
+  25%{ filter:brightness(1.6); }
+  100%{ filter:brightness(1); }
+}
+.rank{
+  font-family:'Anton', sans-serif;
+  font-size:12px;
+  width:20px; text-align:right; margin-right:8px;
+  color:var(--cream-dim);
+  flex-shrink:0;
+  position:relative; z-index:2;
+}
+.avatar{
+  width:22px; height:22px; border-radius:50%;
+  background:rgba(0,0,0,0.35);
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; font-weight:700; color:#fff;
+  margin-right:8px; flex-shrink:0;
+  border:2px solid rgba(255,255,255,0.9);
+  position:relative; z-index:2;
+  box-shadow:0 0 0 1px rgba(0,0,0,0.3);
+}
+.name{
+  font-size:13px; font-weight:700; color:rgba(0,0,0,0.82);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  flex:1;
+  position:relative; z-index:2;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.18);
+}
+.pts-badge{
+  position:absolute; right:-4px; top:50%; transform:translate(100%,-50%);
+  font-family:'Space Grotesk', sans-serif; font-variant-numeric: tabular-nums;
+  font-weight:700; font-size:13px; color:var(--cream);
+  background:var(--bg-0); border:1px solid var(--line-strong);
+  padding:2px 8px; border-radius:20px; white-space:nowrap;
+  z-index:2;
+}
+.delta{
+  font-size:10px; font-weight:700; margin-left:4px;
+  color:#08201A;
+  background:var(--gold);
+  padding:1px 5px; border-radius:8px;
+  opacity:0; transition:opacity 300ms;
+}
+.delta.show{opacity:1;}
+.crown{position:absolute; left:-2px; top:-14px; font-size:14px; opacity:0; transition:opacity 300ms; z-index:2;}
+.crown.show{opacity:1;}
+
+/* ---------- Controls ---------- */
+.controls{
+  margin-top:14px;
+  border:1px solid var(--line-strong);
+  border-radius:14px;
+  background:var(--panel-2);
+  padding:12px 16px;
+  display:flex; flex-direction:column; gap:10px;
+}
+.controls-row{display:flex; align-items:center; gap:10px;}
+button.play-btn{
+  width:40px; height:40px; border-radius:50%;
+  border:none; cursor:pointer;
+  background:var(--gold); color:#08201A;
+  font-size:15px; display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+  transition: transform 150ms;
+}
+button.play-btn:active{transform:scale(0.92);}
+input[type=range]{
+  flex:1; -webkit-appearance:none; appearance:none;
+  height:5px; border-radius:5px; background:var(--bg-0);
+  outline:none; cursor:pointer;
+  border:1px solid var(--line);
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none; width:15px; height:15px; border-radius:50%;
+  background:var(--gold); border:2px solid var(--bg-0); cursor:pointer;
+}
+input[type=range]::-moz-range-thumb{
+  width:15px; height:15px; border-radius:50%; background:var(--gold); border:2px solid var(--bg-0); cursor:pointer;
+}
+.frame-count{font-size:11px; color:var(--cream-dim); font-variant-numeric: tabular-nums; white-space:nowrap;}
+.speed-row{display:flex; align-items:center; gap:6px; justify-content:center;}
+.speed-btn{
+  font-family:'Space Grotesk'; font-size:11px; font-weight:600;
+  background:var(--bg-0); border:1px solid var(--line-strong); color:var(--cream-dim);
+  padding:5px 10px; border-radius:20px; cursor:pointer;
+}
+.speed-btn.active{background:var(--gold); color:#08201A; border-color:var(--gold);}
+.jump-btn{
+  font-family:'Space Grotesk'; font-size:10.5px; font-weight:600;
+  background:transparent; border:1px solid var(--line-strong); color:var(--cream-dim);
+  padding:5px 9px; border-radius:20px; cursor:pointer; white-space:nowrap;
+}
+.jump-row{display:flex; gap:6px; flex-wrap:wrap; justify-content:center;}
+
+.legend{
+  margin-top:10px; font-size:10.5px; color:var(--cream-dim); text-align:center;
+}
+
+/* ---------- Admin panel: add match manually ---------- */
+.admin{
+  margin-top:14px;
+  border:1px dashed var(--line-strong);
+  border-radius:14px;
+  background:var(--panel-2);
+  overflow:hidden;
+}
+.admin-toggle{
+  width:100%; text-align:left; background:transparent; border:none; cursor:pointer;
+  color:var(--gold); font-family:'Space Grotesk'; font-weight:600; font-size:13px;
+  padding:12px 16px; display:flex; align-items:center; justify-content:space-between;
+}
+.admin-body{ display:none; padding:0 16px 16px; }
+.admin-body.open{ display:block; }
+.admin-body p.hint{ font-size:11px; color:var(--cream-dim); line-height:1.4; margin:0 0 10px; }
+.field-row{ display:flex; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
+.field{ display:flex; flex-direction:column; gap:3px; flex:1; min-width:90px; }
+.field label{ font-size:10px; color:var(--cream-dim); text-transform:uppercase; letter-spacing:.06em; }
+.field input, .field select{
+  background:var(--bg-0); border:1px solid var(--line-strong); color:var(--cream);
+  border-radius:8px; padding:7px 9px; font-family:'Space Grotesk'; font-size:13px;
+  outline:none;
+}
+.field input:focus, .field select:focus{ border-color:var(--gold); }
+.preds-grid{
+  display:grid; grid-template-columns:repeat(2, 1fr); gap:8px; margin:10px 0;
+}
+.pred-field label{
+  display:flex; align-items:center; gap:5px;
+}
+.pred-swatch{ width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+.admin-actions{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+.admin-btn{
+  font-family:'Space Grotesk'; font-size:12px; font-weight:600; cursor:pointer;
+  border-radius:20px; padding:8px 16px; border:1px solid var(--line-strong);
+  background:transparent; color:var(--cream);
+}
+.admin-btn.primary{ background:var(--gold); color:#08201A; border-color:var(--gold); }
+.admin-msg{ font-size:11.5px; margin-top:8px; min-height:16px; }
+.admin-msg.ok{ color:#8FD14F; }
+.admin-msg.err{ color:#FF6B6B; }
+
+/* Confetti canvas */
+#confetti{position:fixed; inset:0; pointer-events:none; z-index:50;}
+</style>
+</head>
+<body>
+<canvas id="confetti" width="319" height="564"></canvas>
+<div class="wrap">
+
+  <div class="jumbo">
+    <p class="eyebrow">⚽ Copa Mundial 2026 · 12 participantes</p>
+    <h1>LA POLLA MUNDIAL</h1>
+    <p class="sub">Carrera de posiciones, partido a partido</p>
+
+    <div class="ticker" id="ticker">
+      <div class="deck-meta">
+        <span class="ticker-fase" id="t-fase">Tercer y cuarto puesto</span>
+        <span class="ticker-fecha" id="t-fecha">Jul 18 · 17:00</span>
+      </div>
+      <div class="deck-score">
+        <div class="ticker-match" id="t-match">FRA <span class="ticker-score">4-6</span> ENG</div>
+      </div>
+      <div class="deck-note" id="t-note">Nadie clavó el marcador exacto</div>
+    </div>
+  </div>
+
+  <div class="board" id="board" style="height: 546px;"></div>
+
+  <div class="controls">
+    <div class="controls-row">
+      <button class="play-btn" id="playBtn">▶</button>
+      <input type="range" id="scrubber" min="0" max="107" value="0" step="1">
+      <span class="frame-count" id="frameCount">107 / 107</span>
+    </div>
+    <div class="speed-row">
+      <span style="font-size:11px;color:var(--cream-dim);margin-right:2px;">Velocidad:</span>
+      <button class="speed-btn" data-speed="1800">Lenta</button>
+      <button class="speed-btn active" data-speed="900">Normal</button>
+      <button class="speed-btn" data-speed="400">Rápida</button>
+      <button class="speed-btn" data-speed="120">🚀</button>
+    </div>
+    <div class="jump-row" id="jumpRow"><button class="jump-btn">Grupos</button><button class="jump-btn">16savos de final</button><button class="jump-btn">Octavos de final</button><button class="jump-btn">Cuartos de final</button><button class="jump-btn">Semifinal</button><button class="jump-btn">Tercer y cuarto puesto</button></div>
+  </div>
+
+  <p class="legend">🎯 marcador exacto · ⭐ predicción única (+2) · 👑 líder del momento</p>
+
+  <div class="admin">
+    <button class="admin-toggle" id="adminToggle">➕ Agregar partido manualmente (3er/4to puesto, Final...) ▾</button>
+    <div class="admin-body open" id="adminBody">
+      <p class="hint">Llena esto y toca "Agregar partido". Se suma a la tabla al instante. Cuando termines, toca "Descargar archivo actualizado" para guardar una nueva versión con todo incluido — esa es la que debes usar después.</p>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Fase</label>
+          <input id="f-fase" type="text" placeholder="Tercer y cuarto puesto" value="Tercer y cuarto puesto">
+        </div>
+        <div class="field">
+          <label>Fecha</label>
+          <input id="f-fecha" type="text" placeholder="Jul 18">
+        </div>
+        <div class="field">
+          <label>Hora</label>
+          <input id="f-hora" type="text" placeholder="15:00">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Local</label>
+          <input id="f-local" type="text" placeholder="FRA">
+        </div>
+        <div class="field">
+          <label>Visitante</label>
+          <input id="f-visitante" type="text" placeholder="ENG">
+        </div>
+        <div class="field">
+          <label>Marcador real (dejar vacío si aún no se juega)</label>
+          <input id="f-real" type="text" placeholder="2-1">
+        </div>
+      </div>
+
+      <p class="hint" style="margin-top:10px;">Predicciones de cada quien (formato "2-1"). Deja vacío el que no aplique.</p>
+      <div class="preds-grid" id="predsGrid"><div class="field pred-field">
+    <label><span class="pred-swatch" style="background:#FF6B6B;"></span>Lindsay</label>
+    <input type="text" id="pred-Lindsay" placeholder="2-1"></div><div class="field pred-field">
+    <label><span class="pred-swatch" style="background:#FFD166;"></span>Angelica</label>
+    <input type="text" id="pred-Angelica" placeholder="2-1"></div><div class="field pred-field">
+    <label><span class="pred-swatch" style="background:#06D6A0;"></span>Samuel</label>
+    <input type="text" id="pred-Samuel" placeholder="2-1"></div><div class="field pred-field">
+    <label><span class="pred-swatch" style="background:#4CC9F0;"></span>Marcela</label>
+    <input type="text" id="pred-Marcela" placeholder="2-1"></div><div class="field pred-field">
+    <label><span class="pred-swatch" style="background:#C08FFF;"></span>Mauricio</label>
+    <input type="text" id="pred-Mauricio" placeholder="2-1"></div><div class="field pred-field">
+    <label><span class="pred-swatch" style="background:#F77F00;"></span>Julian</label>
+    <input type="text" id="pred-Julian" placeholder="2-1"></div><div class="field pred-field">
+    <label><span class="pred-swatch" style="background:#EF476F;"></span>Pablo</label>
+    <input type="text" id="pred-Pablo" placeholder="2-1"></div><div class="field pred-field">
+    <label><span class="pred-swatch" style="background:#4EA8DE;"></span>Jorge</label>
+    <input type="text" id="pred-Jorge" placeholder="2-1"></div><div class="field pred-field">
+    <label><span class="pred-swatch" style="background:#8FD14F;"></span>Cesar</label>
+    <input type="text" id="pred-Cesar" placeholder="2-1"></div><div class="field pred-field">
+    <label><span class="pred-swatch" style="background:#FF9F1C;"></span>Margarita</label>
+    <input type="text" id="pred-Margarita" placeholder="2-1"></div><div class="field pred-field">
+    <label><span class="pred-swatch" style="background:#B892FF;"></span>Yoshi</label>
+    <input type="text" id="pred-Yoshi" placeholder="2-1"></div><div class="field pred-field">
+    <label><span class="pred-swatch" style="background:#8A9A90;"></span>Gabriel</label>
+    <input type="text" id="pred-Gabriel" placeholder="2-1"></div></div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>¿Cierra fase con bono?</label>
+          <select id="f-bono">
+            <option value="0">No</option>
+            <option value="10">16avos (+10)</option>
+            <option value="8">Octavos (+8)</option>
+            <option value="4">Cuartos (+4)</option>
+            <option value="2">Semifinal (+2)</option>
+            <option value="5">Final (+5)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="admin-actions">
+        <button class="admin-btn primary" id="addMatchBtn">Agregar partido</button>
+        <button class="admin-btn" id="downloadBtn">⬇ Descargar archivo actualizado</button>
+      </div>
+      <div class="admin-msg ok" id="adminMsg">Partido agregado y puntos calculados ✓</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const DATA = {"participantes":["Lindsay","Angelica","Samuel","Marcela","Mauricio","Julian","Pablo","Jorge","Cesar","Margarita","Yoshi","Gabriel"],"frames":[{"type":"match","fecha":"Jun 11","hora":"15:00","fase":"Grupos","local":"MEX","visitante":"RSA","real":"2-0","match_pts":{"Lindsay":5,"Angelica":5,"Samuel":5,"Marcela":2,"Mauricio":3,"Julian":0,"Pablo":5,"Jorge":3,"Cesar":3,"Margarita":0,"Yoshi":0,"Gabriel":2},"exactos":["Lindsay","Angelica","Samuel","Pablo"],"unico":null,"cumulative":{"Lindsay":5,"Angelica":5,"Samuel":5,"Marcela":2,"Mauricio":3,"Julian":0,"Pablo":5,"Jorge":3,"Cesar":3,"Margarita":0,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 11","hora":"22:00","fase":"Grupos","local":"KOR","visitante":"CZE","real":"2-1","match_pts":{"Lindsay":1,"Angelica":5,"Samuel":1,"Marcela":5,"Mauricio":1,"Julian":3,"Pablo":1,"Jorge":1,"Cesar":2,"Margarita":3,"Yoshi":0,"Gabriel":0},"exactos":["Angelica","Marcela"],"unico":null,"cumulative":{"Lindsay":6,"Angelica":10,"Samuel":6,"Marcela":7,"Mauricio":4,"Julian":3,"Pablo":6,"Jorge":4,"Cesar":5,"Margarita":3,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 12","hora":"15:00","fase":"Grupos","local":"CAN","visitante":"BIH","real":"1-1","match_pts":{"Lindsay":1,"Angelica":1,"Samuel":0,"Marcela":0,"Mauricio":5,"Julian":5,"Pablo":1,"Jorge":1,"Cesar":0,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":["Mauricio","Julian"],"unico":null,"cumulative":{"Lindsay":7,"Angelica":11,"Samuel":6,"Marcela":7,"Mauricio":9,"Julian":8,"Pablo":7,"Jorge":5,"Cesar":5,"Margarita":4,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 12","hora":"21:00","fase":"Grupos","local":"USA","visitante":"PAR","real":"4-1","match_pts":{"Lindsay":1,"Angelica":3,"Samuel":2,"Marcela":2,"Mauricio":0,"Julian":1,"Pablo":1,"Jorge":1,"Cesar":1,"Margarita":3,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":8,"Angelica":14,"Samuel":8,"Marcela":9,"Mauricio":9,"Julian":9,"Pablo":8,"Jorge":6,"Cesar":6,"Margarita":7,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 13","hora":"15:00","fase":"Grupos","local":"QAT","visitante":"SUI","real":"1-1","match_pts":{"Lindsay":0,"Angelica":0,"Samuel":0,"Marcela":1,"Mauricio":1,"Julian":1,"Pablo":1,"Jorge":0,"Cesar":0,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":8,"Angelica":14,"Samuel":8,"Marcela":10,"Mauricio":10,"Julian":10,"Pablo":9,"Jorge":6,"Cesar":6,"Margarita":7,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 13","hora":"18:00","fase":"Grupos","local":"BRA","visitante":"MAR","real":"1-1","match_pts":{"Lindsay":1,"Angelica":1,"Samuel":1,"Marcela":1,"Mauricio":0,"Julian":1,"Pablo":0,"Jorge":1,"Cesar":1,"Margarita":2,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":9,"Angelica":15,"Samuel":9,"Marcela":11,"Mauricio":10,"Julian":11,"Pablo":9,"Jorge":7,"Cesar":7,"Margarita":9,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 13","hora":"21:00","fase":"Grupos","local":"HAI","visitante":"SCO","real":"0-1","match_pts":{"Lindsay":3,"Angelica":3,"Samuel":5,"Marcela":3,"Mauricio":3,"Julian":5,"Pablo":3,"Jorge":3,"Cesar":3,"Margarita":3,"Yoshi":0,"Gabriel":0},"exactos":["Samuel","Julian"],"unico":null,"cumulative":{"Lindsay":12,"Angelica":18,"Samuel":14,"Marcela":14,"Mauricio":13,"Julian":16,"Pablo":12,"Jorge":10,"Cesar":10,"Margarita":12,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 14","hora":"0:00","fase":"Grupos","local":"AUS","visitante":"TUR","real":"2-0","match_pts":{"Lindsay":0,"Angelica":0,"Samuel":0,"Marcela":0,"Mauricio":0,"Julian":0,"Pablo":0,"Jorge":1,"Cesar":0,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":12,"Angelica":18,"Samuel":14,"Marcela":14,"Mauricio":13,"Julian":16,"Pablo":12,"Jorge":11,"Cesar":10,"Margarita":13,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 14","hora":"13:00","fase":"Grupos","local":"GER","visitante":"CUR","real":"7-1","match_pts":{"Lindsay":2,"Angelica":2,"Samuel":2,"Marcela":2,"Mauricio":2,"Julian":2,"Pablo":2,"Jorge":2,"Cesar":2,"Margarita":3,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":14,"Angelica":20,"Samuel":16,"Marcela":16,"Mauricio":15,"Julian":18,"Pablo":14,"Jorge":13,"Cesar":12,"Margarita":16,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 14","hora":"16:00","fase":"Grupos","local":"NED","visitante":"JPN","real":"2-2","match_pts":{"Lindsay":1,"Angelica":1,"Samuel":1,"Marcela":2,"Mauricio":1,"Julian":1,"Pablo":1,"Jorge":0,"Cesar":1,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":15,"Angelica":21,"Samuel":17,"Marcela":18,"Mauricio":16,"Julian":19,"Pablo":15,"Jorge":13,"Cesar":13,"Margarita":17,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 14","hora":"19:00","fase":"Grupos","local":"CIV","visitante":"ECU","real":"1-0","match_pts":{"Lindsay":7,"Angelica":1,"Samuel":0,"Marcela":1,"Mauricio":1,"Julian":0,"Pablo":1,"Jorge":1,"Cesar":0,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":["Lindsay"],"unico":"Lindsay","cumulative":{"Lindsay":22,"Angelica":22,"Samuel":17,"Marcela":19,"Mauricio":17,"Julian":19,"Pablo":16,"Jorge":14,"Cesar":13,"Margarita":18,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 14","hora":"22:00","fase":"Grupos","local":"SWE","visitante":"TUN","real":"5-1","match_pts":{"Lindsay":2,"Angelica":2,"Samuel":2,"Marcela":3,"Mauricio":3,"Julian":2,"Pablo":2,"Jorge":3,"Cesar":2,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":24,"Angelica":24,"Samuel":19,"Marcela":22,"Mauricio":20,"Julian":21,"Pablo":18,"Jorge":17,"Cesar":15,"Margarita":19,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 15","hora":"12:00","fase":"Grupos","local":"ESP","visitante":"CPV","real":"0-0","match_pts":{"Lindsay":1,"Angelica":0,"Samuel":1,"Marcela":1,"Mauricio":1,"Julian":1,"Pablo":1,"Jorge":0,"Cesar":0,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":25,"Angelica":24,"Samuel":20,"Marcela":23,"Mauricio":21,"Julian":22,"Pablo":19,"Jorge":17,"Cesar":15,"Margarita":19,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 15","hora":"15:00","fase":"Grupos","local":"BEL","visitante":"EGY","real":"1-1","match_pts":{"Lindsay":1,"Angelica":1,"Samuel":1,"Marcela":1,"Mauricio":0,"Julian":1,"Pablo":7,"Jorge":0,"Cesar":1,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":["Pablo"],"unico":"Pablo","cumulative":{"Lindsay":26,"Angelica":25,"Samuel":21,"Marcela":24,"Mauricio":21,"Julian":23,"Pablo":26,"Jorge":17,"Cesar":16,"Margarita":20,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 15","hora":"18:00","fase":"Grupos","local":"KSA","visitante":"URU","real":"1-1","match_pts":{"Lindsay":0,"Angelica":7,"Samuel":1,"Marcela":1,"Mauricio":0,"Julian":1,"Pablo":0,"Jorge":0,"Cesar":0,"Margarita":2,"Yoshi":0,"Gabriel":0},"exactos":["Angelica"],"unico":"Angelica","cumulative":{"Lindsay":26,"Angelica":32,"Samuel":22,"Marcela":25,"Mauricio":21,"Julian":24,"Pablo":26,"Jorge":17,"Cesar":16,"Margarita":22,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 15","hora":"21:00","fase":"Grupos","local":"IRN","visitante":"NZL","real":"2-2","match_pts":{"Lindsay":0,"Angelica":1,"Samuel":0,"Marcela":1,"Mauricio":1,"Julian":1,"Pablo":2,"Jorge":1,"Cesar":0,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":26,"Angelica":33,"Samuel":22,"Marcela":26,"Mauricio":22,"Julian":25,"Pablo":28,"Jorge":18,"Cesar":16,"Margarita":22,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 16","hora":"15:00","fase":"Grupos","local":"FRA","visitante":"SEN","real":"3-1","match_pts":{"Lindsay":5,"Angelica":3,"Samuel":2,"Marcela":2,"Mauricio":5,"Julian":3,"Pablo":3,"Jorge":3,"Cesar":3,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":["Lindsay","Mauricio"],"unico":null,"cumulative":{"Lindsay":31,"Angelica":36,"Samuel":24,"Marcela":28,"Mauricio":27,"Julian":28,"Pablo":31,"Jorge":21,"Cesar":19,"Margarita":23,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 16","hora":"18:00","fase":"Grupos","local":"IRQ","visitante":"NOR","real":"1-4","match_pts":{"Lindsay":2,"Angelica":3,"Samuel":2,"Marcela":2,"Mauricio":2,"Julian":2,"Pablo":0,"Jorge":2,"Cesar":2,"Margarita":3,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":33,"Angelica":39,"Samuel":26,"Marcela":30,"Mauricio":29,"Julian":30,"Pablo":31,"Jorge":23,"Cesar":21,"Margarita":26,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 16","hora":"21:00","fase":"Grupos","local":"ARG","visitante":"ALG","real":"3-0","match_pts":{"Lindsay":3,"Angelica":3,"Samuel":3,"Marcela":3,"Mauricio":7,"Julian":3,"Pablo":2,"Jorge":3,"Cesar":0,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":["Mauricio"],"unico":"Mauricio","cumulative":{"Lindsay":36,"Angelica":42,"Samuel":29,"Marcela":33,"Mauricio":36,"Julian":33,"Pablo":33,"Jorge":26,"Cesar":21,"Margarita":26,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 17","hora":"0:00","fase":"Grupos","local":"AUT","visitante":"JOR","real":"3-1","match_pts":{"Lindsay":3,"Angelica":5,"Samuel":2,"Marcela":5,"Mauricio":2,"Julian":2,"Pablo":5,"Jorge":3,"Cesar":2,"Margarita":3,"Yoshi":0,"Gabriel":0},"exactos":["Angelica","Marcela","Pablo"],"unico":null,"cumulative":{"Lindsay":39,"Angelica":47,"Samuel":31,"Marcela":38,"Mauricio":38,"Julian":35,"Pablo":38,"Jorge":29,"Cesar":23,"Margarita":29,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 17","hora":"13:00","fase":"Grupos","local":"POR","visitante":"COD","real":"1-1","match_pts":{"Lindsay":1,"Angelica":1,"Samuel":0,"Marcela":0,"Mauricio":1,"Julian":0,"Pablo":0,"Jorge":1,"Cesar":0,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":40,"Angelica":48,"Samuel":31,"Marcela":38,"Mauricio":39,"Julian":35,"Pablo":38,"Jorge":30,"Cesar":23,"Margarita":30,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 17","hora":"16:00","fase":"Grupos","local":"ENG","visitante":"CRO","real":"4-2","match_pts":{"Lindsay":2,"Angelica":2,"Samuel":2,"Marcela":2,"Mauricio":0,"Julian":2,"Pablo":1,"Jorge":2,"Cesar":0,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":42,"Angelica":50,"Samuel":33,"Marcela":40,"Mauricio":39,"Julian":37,"Pablo":39,"Jorge":32,"Cesar":23,"Margarita":30,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 17","hora":"19:00","fase":"Grupos","local":"GHA","visitante":"PAN","real":"1-0","match_pts":{"Lindsay":2,"Angelica":2,"Samuel":1,"Marcela":1,"Mauricio":5,"Julian":1,"Pablo":3,"Jorge":5,"Cesar":1,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":["Mauricio","Jorge"],"unico":null,"cumulative":{"Lindsay":44,"Angelica":52,"Samuel":34,"Marcela":41,"Mauricio":44,"Julian":38,"Pablo":42,"Jorge":37,"Cesar":24,"Margarita":31,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 17","hora":"22:00","fase":"Grupos","local":"UZB","visitante":"COL","real":"1-3","match_pts":{"Lindsay":2,"Angelica":2,"Samuel":2,"Marcela":3,"Mauricio":2,"Julian":2,"Pablo":3,"Jorge":3,"Cesar":2,"Margarita":7,"Yoshi":0,"Gabriel":0},"exactos":["Margarita"],"unico":"Margarita","cumulative":{"Lindsay":46,"Angelica":54,"Samuel":36,"Marcela":44,"Mauricio":46,"Julian":40,"Pablo":45,"Jorge":40,"Cesar":26,"Margarita":38,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 18","hora":"12:00","fase":"Grupos","local":"CZE","visitante":"RSA","real":"1-1","match_pts":{"Lindsay":1,"Angelica":0,"Samuel":1,"Marcela":1,"Mauricio":1,"Julian":1,"Pablo":1,"Jorge":0,"Cesar":1,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":47,"Angelica":54,"Samuel":37,"Marcela":45,"Mauricio":47,"Julian":41,"Pablo":46,"Jorge":40,"Cesar":27,"Margarita":39,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 18","hora":"15:00","fase":"Grupos","local":"SUI","visitante":"BIH","real":"4-1","match_pts":{"Lindsay":2,"Angelica":3,"Samuel":2,"Marcela":1,"Mauricio":1,"Julian":1,"Pablo":2,"Jorge":3,"Cesar":2,"Margarita":3,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":49,"Angelica":57,"Samuel":39,"Marcela":46,"Mauricio":48,"Julian":42,"Pablo":48,"Jorge":43,"Cesar":29,"Margarita":42,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 18","hora":"18:00","fase":"Grupos","local":"CAN","visitante":"QAT","real":"6-0","match_pts":{"Lindsay":0,"Angelica":2,"Samuel":3,"Marcela":2,"Mauricio":2,"Julian":3,"Pablo":0,"Jorge":2,"Cesar":3,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":49,"Angelica":59,"Samuel":42,"Marcela":48,"Mauricio":50,"Julian":45,"Pablo":48,"Jorge":45,"Cesar":32,"Margarita":42,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 18","hora":"21:00","fase":"Grupos","local":"MEX","visitante":"KOR","real":"1-0","match_pts":{"Lindsay":7,"Angelica":2,"Samuel":1,"Marcela":0,"Mauricio":0,"Julian":1,"Pablo":1,"Jorge":1,"Cesar":0,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":["Lindsay"],"unico":"Lindsay","cumulative":{"Lindsay":56,"Angelica":61,"Samuel":43,"Marcela":48,"Mauricio":50,"Julian":46,"Pablo":49,"Jorge":46,"Cesar":32,"Margarita":42,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 19","hora":"15:00","fase":"Grupos","local":"USA","visitante":"AUS","real":"2-0","match_pts":{"Lindsay":3,"Angelica":3,"Samuel":3,"Marcela":2,"Mauricio":3,"Julian":2,"Pablo":2,"Jorge":2,"Cesar":3,"Margarita":3,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":59,"Angelica":64,"Samuel":46,"Marcela":50,"Mauricio":53,"Julian":48,"Pablo":51,"Jorge":48,"Cesar":35,"Margarita":45,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 19","hora":"18:00","fase":"Grupos","local":"SCO","visitante":"MAR","real":"0-1","match_pts":{"Lindsay":2,"Angelica":1,"Samuel":7,"Marcela":2,"Mauricio":1,"Julian":2,"Pablo":3,"Jorge":2,"Cesar":3,"Margarita":2,"Yoshi":0,"Gabriel":0},"exactos":["Samuel"],"unico":"Samuel","cumulative":{"Lindsay":61,"Angelica":65,"Samuel":53,"Marcela":52,"Mauricio":54,"Julian":50,"Pablo":54,"Jorge":50,"Cesar":38,"Margarita":47,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 19","hora":"20:30","fase":"Grupos","local":"BRA","visitante":"HAI","real":"3-0","match_pts":{"Lindsay":5,"Angelica":5,"Samuel":5,"Marcela":5,"Mauricio":3,"Julian":3,"Pablo":3,"Jorge":5,"Cesar":3,"Margarita":3,"Yoshi":0,"Gabriel":0},"exactos":["Lindsay","Angelica","Samuel","Marcela","Jorge"],"unico":null,"cumulative":{"Lindsay":66,"Angelica":70,"Samuel":58,"Marcela":57,"Mauricio":57,"Julian":53,"Pablo":57,"Jorge":55,"Cesar":41,"Margarita":50,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 19","hora":"23:00","fase":"Grupos","local":"TUR","visitante":"PAR","real":"0-1","match_pts":{"Lindsay":7,"Angelica":0,"Samuel":1,"Marcela":1,"Mauricio":0,"Julian":1,"Pablo":1,"Jorge":1,"Cesar":0,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":["Lindsay"],"unico":"Lindsay","cumulative":{"Lindsay":73,"Angelica":70,"Samuel":59,"Marcela":58,"Mauricio":57,"Julian":54,"Pablo":58,"Jorge":56,"Cesar":41,"Margarita":51,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 20","hora":"13:00","fase":"Grupos","local":"NED","visitante":"SWE","real":"5-1","match_pts":{"Lindsay":2,"Angelica":3,"Samuel":3,"Marcela":3,"Mauricio":0,"Julian":2,"Pablo":2,"Jorge":3,"Cesar":3,"Margarita":3,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":75,"Angelica":73,"Samuel":62,"Marcela":61,"Mauricio":57,"Julian":56,"Pablo":60,"Jorge":59,"Cesar":44,"Margarita":54,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 20","hora":"16:00","fase":"Grupos","local":"GER","visitante":"CIV","real":"2-1","match_pts":{"Lindsay":3,"Angelica":3,"Samuel":5,"Marcela":3,"Mauricio":2,"Julian":3,"Pablo":2,"Jorge":3,"Cesar":3,"Margarita":5,"Yoshi":0,"Gabriel":0},"exactos":["Samuel","Margarita"],"unico":null,"cumulative":{"Lindsay":78,"Angelica":76,"Samuel":67,"Marcela":64,"Mauricio":59,"Julian":59,"Pablo":62,"Jorge":62,"Cesar":47,"Margarita":59,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 20","hora":"20:00","fase":"Grupos","local":"CUR","visitante":"ECU","real":"0-0","match_pts":{"Lindsay":1,"Angelica":0,"Samuel":1,"Marcela":1,"Mauricio":1,"Julian":0,"Pablo":1,"Jorge":1,"Cesar":1,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":79,"Angelica":76,"Samuel":68,"Marcela":65,"Mauricio":60,"Julian":59,"Pablo":63,"Jorge":63,"Cesar":48,"Margarita":60,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 21","hora":"0:00","fase":"Grupos","local":"TUN","visitante":"JPN","real":"0-4","match_pts":{"Lindsay":3,"Angelica":3,"Samuel":3,"Marcela":3,"Mauricio":3,"Julian":3,"Pablo":3,"Jorge":2,"Cesar":2,"Margarita":3,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":82,"Angelica":79,"Samuel":71,"Marcela":68,"Mauricio":63,"Julian":62,"Pablo":66,"Jorge":65,"Cesar":50,"Margarita":63,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 21","hora":"12:00","fase":"Grupos","local":"ESP","visitante":"KSA","real":"4-0","match_pts":{"Lindsay":2,"Angelica":2,"Samuel":3,"Marcela":5,"Mauricio":5,"Julian":2,"Pablo":2,"Jorge":3,"Cesar":0,"Margarita":2,"Yoshi":0,"Gabriel":0},"exactos":["Marcela","Mauricio"],"unico":null,"cumulative":{"Lindsay":84,"Angelica":81,"Samuel":74,"Marcela":73,"Mauricio":68,"Julian":64,"Pablo":68,"Jorge":68,"Cesar":50,"Margarita":65,"Yoshi":0,"Gabriel":2}},{"type":"match","fecha":"Jun 21","hora":"15:00","fase":"Grupos","local":"BEL","visitante":"IRN","real":"0-0","match_pts":{"Lindsay":1,"Angelica":0,"Samuel":1,"Marcela":0,"Mauricio":1,"Julian":0,"Pablo":1,"Jorge":0,"Cesar":1,"Margarita":0,"Yoshi":2,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":85,"Angelica":81,"Samuel":75,"Marcela":73,"Mauricio":69,"Julian":64,"Pablo":69,"Jorge":68,"Cesar":51,"Margarita":65,"Yoshi":2,"Gabriel":2}},{"type":"match","fecha":"Jun 21","hora":"18:00","fase":"Grupos","local":"URU","visitante":"CPV","real":"2-2","match_pts":{"Lindsay":1,"Angelica":1,"Samuel":0,"Marcela":2,"Mauricio":0,"Julian":2,"Pablo":1,"Jorge":1,"Cesar":0,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":86,"Angelica":82,"Samuel":75,"Marcela":75,"Mauricio":69,"Julian":66,"Pablo":70,"Jorge":69,"Cesar":51,"Margarita":65,"Yoshi":2,"Gabriel":2}},{"type":"match","fecha":"Jun 21","hora":"21:00","fase":"Grupos","local":"NZL","visitante":"EGY","real":"1-3","match_pts":{"Lindsay":1,"Angelica":2,"Samuel":2,"Marcela":3,"Mauricio":1,"Julian":2,"Pablo":1,"Jorge":1,"Cesar":0,"Margarita":3,"Yoshi":1,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":87,"Angelica":84,"Samuel":77,"Marcela":78,"Mauricio":70,"Julian":68,"Pablo":71,"Jorge":70,"Cesar":51,"Margarita":68,"Yoshi":3,"Gabriel":2}},{"type":"match","fecha":"Jun 22","hora":"13:00","fase":"Grupos","local":"ARG","visitante":"AUT","real":"2-0","match_pts":{"Lindsay":3,"Angelica":3,"Samuel":3,"Marcela":2,"Mauricio":3,"Julian":3,"Pablo":2,"Jorge":2,"Cesar":3,"Margarita":2,"Yoshi":3,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":90,"Angelica":87,"Samuel":80,"Marcela":80,"Mauricio":73,"Julian":71,"Pablo":73,"Jorge":72,"Cesar":54,"Margarita":70,"Yoshi":6,"Gabriel":2}},{"type":"match","fecha":"Jun 22","hora":"17:00","fase":"Grupos","local":"FRA","visitante":"IRQ","real":"3-0","match_pts":{"Lindsay":5,"Angelica":3,"Samuel":5,"Marcela":5,"Mauricio":5,"Julian":5,"Pablo":2,"Jorge":3,"Cesar":3,"Margarita":3,"Yoshi":5,"Gabriel":0},"exactos":["Lindsay","Samuel","Marcela","Mauricio","Julian","Yoshi"],"unico":null,"cumulative":{"Lindsay":95,"Angelica":90,"Samuel":85,"Marcela":85,"Mauricio":78,"Julian":76,"Pablo":75,"Jorge":75,"Cesar":57,"Margarita":73,"Yoshi":11,"Gabriel":2}},{"type":"match","fecha":"Jun 22","hora":"20:00","fase":"Grupos","local":"NOR","visitante":"SEN","real":"3-2","match_pts":{"Lindsay":2,"Angelica":2,"Samuel":0,"Marcela":2,"Mauricio":2,"Julian":2,"Pablo":1,"Jorge":1,"Cesar":2,"Margarita":2,"Yoshi":3,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":97,"Angelica":92,"Samuel":85,"Marcela":87,"Mauricio":80,"Julian":78,"Pablo":76,"Jorge":76,"Cesar":59,"Margarita":75,"Yoshi":14,"Gabriel":2}},{"type":"match","fecha":"Jun 22","hora":"23:00","fase":"Grupos","local":"JOR","visitante":"ALG","real":"1-2","match_pts":{"Lindsay":3,"Angelica":5,"Samuel":3,"Marcela":5,"Mauricio":5,"Julian":1,"Pablo":3,"Jorge":2,"Cesar":3,"Margarita":2,"Yoshi":1,"Gabriel":0},"exactos":["Angelica","Marcela","Mauricio"],"unico":null,"cumulative":{"Lindsay":100,"Angelica":97,"Samuel":88,"Marcela":92,"Mauricio":85,"Julian":79,"Pablo":79,"Jorge":78,"Cesar":62,"Margarita":77,"Yoshi":15,"Gabriel":2}},{"type":"match","fecha":"Jun 23","hora":"13:00","fase":"Grupos","local":"POR","visitante":"UZB","real":"5-0","match_pts":{"Lindsay":3,"Angelica":2,"Samuel":3,"Marcela":3,"Mauricio":3,"Julian":3,"Pablo":3,"Jorge":3,"Cesar":2,"Margarita":3,"Yoshi":2,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":103,"Angelica":99,"Samuel":91,"Marcela":95,"Mauricio":88,"Julian":82,"Pablo":82,"Jorge":81,"Cesar":64,"Margarita":80,"Yoshi":17,"Gabriel":2}},{"type":"match","fecha":"Jun 23","hora":"16:00","fase":"Grupos","local":"ENG","visitante":"GHA","real":"0-0","match_pts":{"Lindsay":0,"Angelica":0,"Samuel":1,"Marcela":1,"Mauricio":1,"Julian":0,"Pablo":0,"Jorge":0,"Cesar":1,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":103,"Angelica":99,"Samuel":92,"Marcela":96,"Mauricio":89,"Julian":82,"Pablo":82,"Jorge":81,"Cesar":65,"Margarita":80,"Yoshi":17,"Gabriel":2}},{"type":"match","fecha":"Jun 23","hora":"19:00","fase":"Grupos","local":"PAN","visitante":"CRO","real":"0-1","match_pts":{"Lindsay":3,"Angelica":3,"Samuel":7,"Marcela":3,"Mauricio":3,"Julian":3,"Pablo":3,"Jorge":3,"Cesar":3,"Margarita":3,"Yoshi":3,"Gabriel":0},"exactos":["Samuel"],"unico":"Samuel","cumulative":{"Lindsay":106,"Angelica":102,"Samuel":99,"Marcela":99,"Mauricio":92,"Julian":85,"Pablo":85,"Jorge":84,"Cesar":68,"Margarita":83,"Yoshi":20,"Gabriel":2}},{"type":"match","fecha":"Jun 23","hora":"22:00","fase":"Grupos","local":"COL","visitante":"COD","real":"1-0","match_pts":{"Lindsay":3,"Angelica":2,"Samuel":3,"Marcela":3,"Mauricio":3,"Julian":2,"Pablo":2,"Jorge":0,"Cesar":3,"Margarita":0,"Yoshi":2,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":109,"Angelica":104,"Samuel":102,"Marcela":102,"Mauricio":95,"Julian":87,"Pablo":87,"Jorge":84,"Cesar":71,"Margarita":83,"Yoshi":22,"Gabriel":2}},{"type":"match","fecha":"Jun 24","hora":"15:00","fase":"Grupos","local":"SUI","visitante":"CAN","real":"2-1","match_pts":{"Lindsay":1,"Angelica":1,"Samuel":1,"Marcela":1,"Mauricio":1,"Julian":0,"Pablo":0,"Jorge":1,"Cesar":7,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":["Cesar"],"unico":"Cesar","cumulative":{"Lindsay":110,"Angelica":105,"Samuel":103,"Marcela":103,"Mauricio":96,"Julian":87,"Pablo":87,"Jorge":85,"Cesar":78,"Margarita":84,"Yoshi":22,"Gabriel":2}},{"type":"match","fecha":"Jun 24","hora":"15:00","fase":"Grupos","local":"BIH","visitante":"QAT","real":"3-1","match_pts":{"Lindsay":2,"Angelica":3,"Samuel":2,"Marcela":2,"Mauricio":2,"Julian":2,"Pablo":2,"Jorge":2,"Cesar":3,"Margarita":1,"Yoshi":1,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":112,"Angelica":108,"Samuel":105,"Marcela":105,"Mauricio":98,"Julian":89,"Pablo":89,"Jorge":87,"Cesar":81,"Margarita":85,"Yoshi":23,"Gabriel":2}},{"type":"match","fecha":"Jun 24","hora":"18:00","fase":"Grupos","local":"SCO","visitante":"BRA","real":"0-3","match_pts":{"Lindsay":3,"Angelica":2,"Samuel":3,"Marcela":3,"Mauricio":2,"Julian":3,"Pablo":3,"Jorge":3,"Cesar":3,"Margarita":0,"Yoshi":3,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":115,"Angelica":110,"Samuel":108,"Marcela":108,"Mauricio":100,"Julian":92,"Pablo":92,"Jorge":90,"Cesar":84,"Margarita":85,"Yoshi":26,"Gabriel":2}},{"type":"match","fecha":"Jun 24","hora":"18:00","fase":"Grupos","local":"MAR","visitante":"HAI","real":"4-2","match_pts":{"Lindsay":2,"Angelica":2,"Samuel":2,"Marcela":2,"Mauricio":2,"Julian":2,"Pablo":2,"Jorge":2,"Cesar":2,"Margarita":3,"Yoshi":2,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":117,"Angelica":112,"Samuel":110,"Marcela":110,"Mauricio":102,"Julian":94,"Pablo":94,"Jorge":92,"Cesar":86,"Margarita":88,"Yoshi":28,"Gabriel":2}},{"type":"match","fecha":"Jun 24","hora":"21:00","fase":"Grupos","local":"CZE","visitante":"MEX","real":"0-3","match_pts":{"Lindsay":2,"Angelica":2,"Samuel":3,"Marcela":2,"Mauricio":3,"Julian":3,"Pablo":3,"Jorge":0,"Cesar":3,"Margarita":0,"Yoshi":2,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":119,"Angelica":114,"Samuel":113,"Marcela":112,"Mauricio":105,"Julian":97,"Pablo":97,"Jorge":92,"Cesar":89,"Margarita":88,"Yoshi":30,"Gabriel":2}},{"type":"match","fecha":"Jun 24","hora":"21:00","fase":"Grupos","local":"RSA","visitante":"KOR","real":"1-0","match_pts":{"Lindsay":0,"Angelica":0,"Samuel":0,"Marcela":0,"Mauricio":0,"Julian":1,"Pablo":0,"Jorge":2,"Cesar":0,"Margarita":1,"Yoshi":1,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":119,"Angelica":114,"Samuel":113,"Marcela":112,"Mauricio":105,"Julian":98,"Pablo":97,"Jorge":94,"Cesar":89,"Margarita":89,"Yoshi":31,"Gabriel":2}},{"type":"match","fecha":"Jun 25","hora":"16:00","fase":"Grupos","local":"ECU","visitante":"GER","real":"2-1","match_pts":{"Lindsay":0,"Angelica":0,"Samuel":1,"Marcela":0,"Mauricio":1,"Julian":0,"Pablo":0,"Jorge":0,"Cesar":0,"Margarita":0,"Yoshi":1,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":119,"Angelica":114,"Samuel":114,"Marcela":112,"Mauricio":106,"Julian":98,"Pablo":97,"Jorge":94,"Cesar":89,"Margarita":89,"Yoshi":32,"Gabriel":2}},{"type":"match","fecha":"Jun 25","hora":"16:00","fase":"Grupos","local":"CUR","visitante":"CIV","real":"0-2","match_pts":{"Lindsay":5,"Angelica":5,"Samuel":3,"Marcela":2,"Mauricio":5,"Julian":3,"Pablo":0,"Jorge":3,"Cesar":3,"Margarita":2,"Yoshi":0,"Gabriel":0},"exactos":["Lindsay","Angelica","Mauricio"],"unico":null,"cumulative":{"Lindsay":124,"Angelica":119,"Samuel":117,"Marcela":114,"Mauricio":111,"Julian":101,"Pablo":97,"Jorge":97,"Cesar":92,"Margarita":91,"Yoshi":32,"Gabriel":2}},{"type":"match","fecha":"Jun 25","hora":"19:00","fase":"Grupos","local":"TUN","visitante":"NED","real":"1-3","match_pts":{"Lindsay":3,"Angelica":3,"Samuel":3,"Marcela":2,"Mauricio":3,"Julian":3,"Pablo":3,"Jorge":2,"Cesar":2,"Margarita":7,"Yoshi":2,"Gabriel":0},"exactos":["Margarita"],"unico":"Margarita","cumulative":{"Lindsay":127,"Angelica":122,"Samuel":120,"Marcela":116,"Mauricio":114,"Julian":104,"Pablo":100,"Jorge":99,"Cesar":94,"Margarita":98,"Yoshi":34,"Gabriel":2}},{"type":"match","fecha":"Jun 25","hora":"19:00","fase":"Grupos","local":"JPN","visitante":"SWE","real":"1-1","match_pts":{"Lindsay":1,"Angelica":1,"Samuel":5,"Marcela":1,"Mauricio":1,"Julian":1,"Pablo":1,"Jorge":2,"Cesar":0,"Margarita":5,"Yoshi":1,"Gabriel":0},"exactos":["Samuel","Margarita"],"unico":null,"cumulative":{"Lindsay":128,"Angelica":123,"Samuel":125,"Marcela":117,"Mauricio":115,"Julian":105,"Pablo":101,"Jorge":101,"Cesar":94,"Margarita":103,"Yoshi":35,"Gabriel":2}},{"type":"match","fecha":"Jun 25","hora":"22:00","fase":"Grupos","local":"TUR","visitante":"USA","real":"3-2","match_pts":{"Lindsay":1,"Angelica":1,"Samuel":0,"Marcela":0,"Mauricio":1,"Julian":0,"Pablo":0,"Jorge":1,"Cesar":0,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":129,"Angelica":124,"Samuel":125,"Marcela":117,"Mauricio":116,"Julian":105,"Pablo":101,"Jorge":102,"Cesar":94,"Margarita":103,"Yoshi":35,"Gabriel":2}},{"type":"match","fecha":"Jun 25","hora":"22:00","fase":"Grupos","local":"PAR","visitante":"AUS","real":"0-0","match_pts":{"Lindsay":2,"Angelica":0,"Samuel":7,"Marcela":2,"Mauricio":2,"Julian":2,"Pablo":0,"Jorge":1,"Cesar":1,"Margarita":0,"Yoshi":2,"Gabriel":0},"exactos":["Samuel"],"unico":"Samuel","cumulative":{"Lindsay":131,"Angelica":124,"Samuel":132,"Marcela":119,"Mauricio":118,"Julian":107,"Pablo":101,"Jorge":103,"Cesar":95,"Margarita":103,"Yoshi":37,"Gabriel":2}},{"type":"match","fecha":"Jun 26","hora":"15:00","fase":"Grupos","local":"SEN","visitante":"IRQ","real":"5-0","match_pts":{"Lindsay":3,"Angelica":3,"Samuel":3,"Marcela":3,"Mauricio":3,"Julian":3,"Pablo":3,"Jorge":3,"Cesar":3,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":134,"Angelica":127,"Samuel":135,"Marcela":122,"Mauricio":121,"Julian":110,"Pablo":104,"Jorge":106,"Cesar":98,"Margarita":103,"Yoshi":37,"Gabriel":2}},{"type":"match","fecha":"Jun 26","hora":"15:00","fase":"Grupos","local":"NOR","visitante":"FRA","real":"1-4","match_pts":{"Lindsay":3,"Angelica":3,"Samuel":3,"Marcela":3,"Mauricio":3,"Julian":3,"Pablo":3,"Jorge":3,"Cesar":3,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":137,"Angelica":130,"Samuel":138,"Marcela":125,"Mauricio":124,"Julian":113,"Pablo":107,"Jorge":109,"Cesar":101,"Margarita":103,"Yoshi":37,"Gabriel":2}},{"type":"match","fecha":"Jun 26","hora":"20:00","fase":"Grupos","local":"CPV","visitante":"KSA","real":"0-0","match_pts":{"Lindsay":0,"Angelica":2,"Samuel":2,"Marcela":0,"Mauricio":1,"Julian":1,"Pablo":0,"Jorge":0,"Cesar":1,"Margarita":0,"Yoshi":1,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":137,"Angelica":132,"Samuel":140,"Marcela":125,"Mauricio":125,"Julian":114,"Pablo":107,"Jorge":109,"Cesar":102,"Margarita":103,"Yoshi":38,"Gabriel":2}},{"type":"match","fecha":"Jun 26","hora":"20:00","fase":"Grupos","local":"URU","visitante":"ESP","real":"0-1","match_pts":{"Lindsay":0,"Angelica":2,"Samuel":5,"Marcela":2,"Mauricio":5,"Julian":0,"Pablo":2,"Jorge":2,"Cesar":3,"Margarita":2,"Yoshi":2,"Gabriel":0},"exactos":["Samuel","Mauricio"],"unico":null,"cumulative":{"Lindsay":137,"Angelica":134,"Samuel":145,"Marcela":127,"Mauricio":130,"Julian":114,"Pablo":109,"Jorge":111,"Cesar":105,"Margarita":105,"Yoshi":40,"Gabriel":2}},{"type":"match","fecha":"Jun 26","hora":"23:00","fase":"Grupos","local":"EGY","visitante":"IRN","real":"1-1","match_pts":{"Lindsay":1,"Angelica":5,"Samuel":2,"Marcela":1,"Mauricio":5,"Julian":0,"Pablo":1,"Jorge":5,"Cesar":0,"Margarita":1,"Yoshi":2,"Gabriel":0},"exactos":["Angelica","Mauricio","Jorge"],"unico":null,"cumulative":{"Lindsay":138,"Angelica":139,"Samuel":147,"Marcela":128,"Mauricio":135,"Julian":114,"Pablo":110,"Jorge":116,"Cesar":105,"Margarita":106,"Yoshi":42,"Gabriel":2}},{"type":"match","fecha":"Jun 26","hora":"23:00","fase":"Grupos","local":"NZL","visitante":"BEL","real":"1-5","match_pts":{"Lindsay":2,"Angelica":3,"Samuel":2,"Marcela":3,"Mauricio":2,"Julian":3,"Pablo":2,"Jorge":2,"Cesar":2,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":140,"Angelica":142,"Samuel":149,"Marcela":131,"Mauricio":137,"Julian":117,"Pablo":112,"Jorge":118,"Cesar":107,"Margarita":107,"Yoshi":42,"Gabriel":2}},{"type":"match","fecha":"Jun 27","hora":"17:00","fase":"Grupos","local":"PAN","visitante":"ENG","real":"0-2","match_pts":{"Lindsay":3,"Angelica":3,"Samuel":5,"Marcela":5,"Mauricio":5,"Julian":3,"Pablo":3,"Jorge":5,"Cesar":0,"Margarita":2,"Yoshi":3,"Gabriel":0},"exactos":["Samuel","Marcela","Mauricio","Jorge"],"unico":null,"cumulative":{"Lindsay":143,"Angelica":145,"Samuel":154,"Marcela":136,"Mauricio":142,"Julian":120,"Pablo":115,"Jorge":123,"Cesar":107,"Margarita":109,"Yoshi":45,"Gabriel":2}},{"type":"match","fecha":"Jun 27","hora":"17:00","fase":"Grupos","local":"CRO","visitante":"GHA","real":"2-1","match_pts":{"Lindsay":5,"Angelica":2,"Samuel":2,"Marcela":1,"Mauricio":5,"Julian":3,"Pablo":0,"Jorge":5,"Cesar":1,"Margarita":0,"Yoshi":1,"Gabriel":0},"exactos":["Lindsay","Mauricio","Jorge"],"unico":null,"cumulative":{"Lindsay":148,"Angelica":147,"Samuel":156,"Marcela":137,"Mauricio":147,"Julian":123,"Pablo":115,"Jorge":128,"Cesar":108,"Margarita":109,"Yoshi":46,"Gabriel":2}},{"type":"match","fecha":"Jun 27","hora":"19:30","fase":"Grupos","local":"COL","visitante":"POR","real":"0-0","match_pts":{"Lindsay":2,"Angelica":0,"Samuel":2,"Marcela":0,"Mauricio":2,"Julian":2,"Pablo":0,"Jorge":2,"Cesar":1,"Margarita":2,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":150,"Angelica":147,"Samuel":158,"Marcela":137,"Mauricio":149,"Julian":125,"Pablo":115,"Jorge":130,"Cesar":109,"Margarita":111,"Yoshi":46,"Gabriel":2}},{"type":"match","fecha":"Jun 27","hora":"19:30","fase":"Grupos","local":"COD","visitante":"UZB","real":"3-1","match_pts":{"Lindsay":2,"Angelica":2,"Samuel":2,"Marcela":2,"Mauricio":1,"Julian":3,"Pablo":0,"Jorge":0,"Cesar":3,"Margarita":2,"Yoshi":3,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":152,"Angelica":149,"Samuel":160,"Marcela":139,"Mauricio":150,"Julian":128,"Pablo":115,"Jorge":130,"Cesar":112,"Margarita":113,"Yoshi":49,"Gabriel":2}},{"type":"match","fecha":"Jun 27","hora":"22:00","fase":"Grupos","local":"ALG","visitante":"AUT","real":"3-3","match_pts":{"Lindsay":2,"Angelica":2,"Samuel":2,"Marcela":2,"Mauricio":0,"Julian":2,"Pablo":2,"Jorge":0,"Cesar":0,"Margarita":2,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":154,"Angelica":151,"Samuel":162,"Marcela":141,"Mauricio":150,"Julian":130,"Pablo":117,"Jorge":130,"Cesar":112,"Margarita":115,"Yoshi":49,"Gabriel":2}},{"type":"match","fecha":"Jun 27","hora":"22:00","fase":"Grupos","local":"JOR","visitante":"ARG","real":"1-3","match_pts":{"Lindsay":2,"Angelica":3,"Samuel":2,"Marcela":3,"Mauricio":2,"Julian":2,"Pablo":3,"Jorge":3,"Cesar":2,"Margarita":2,"Yoshi":2,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":156,"Angelica":154,"Samuel":164,"Marcela":144,"Mauricio":152,"Julian":132,"Pablo":120,"Jorge":133,"Cesar":114,"Margarita":117,"Yoshi":51,"Gabriel":2}},{"type":"match","fecha":"Jun 28","hora":"15:00","fase":"16savos de final","local":"RSA","visitante":"CAN","real":"0-1","match_pts":{"Lindsay":2,"Angelica":1,"Samuel":7,"Marcela":2,"Mauricio":2,"Julian":2,"Pablo":3,"Jorge":2,"Cesar":0,"Margarita":2,"Yoshi":2,"Gabriel":0},"exactos":["Samuel"],"unico":"Samuel","cumulative":{"Lindsay":158,"Angelica":155,"Samuel":171,"Marcela":146,"Mauricio":154,"Julian":134,"Pablo":123,"Jorge":135,"Cesar":114,"Margarita":119,"Yoshi":53,"Gabriel":2}},{"type":"match","fecha":"Jun 29","hora":"13:00","fase":"16savos de final","local":"BRA","visitante":"JPN","real":"2-1","match_pts":{"Lindsay":3,"Angelica":5,"Samuel":1,"Marcela":3,"Mauricio":3,"Julian":3,"Pablo":3,"Jorge":5,"Cesar":0,"Margarita":5,"Yoshi":1,"Gabriel":0},"exactos":["Angelica","Jorge","Margarita"],"unico":null,"cumulative":{"Lindsay":161,"Angelica":160,"Samuel":172,"Marcela":149,"Mauricio":157,"Julian":137,"Pablo":126,"Jorge":140,"Cesar":114,"Margarita":124,"Yoshi":54,"Gabriel":2}},{"type":"match","fecha":"Jun 29","hora":"16:30","fase":"16savos de final","local":"GER","visitante":"PAR","real":"1-1","match_pts":{"Lindsay":0,"Angelica":1,"Samuel":0,"Marcela":1,"Mauricio":0,"Julian":1,"Pablo":1,"Jorge":0,"Cesar":0,"Margarita":0,"Yoshi":1,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":161,"Angelica":161,"Samuel":172,"Marcela":150,"Mauricio":157,"Julian":138,"Pablo":127,"Jorge":140,"Cesar":114,"Margarita":124,"Yoshi":55,"Gabriel":2}},{"type":"match","fecha":"Jun 29","hora":"21:00","fase":"16savos de final","local":"NED","visitante":"MAR","real":"1-1","match_pts":{"Lindsay":1,"Angelica":1,"Samuel":1,"Marcela":5,"Mauricio":2,"Julian":2,"Pablo":5,"Jorge":1,"Cesar":1,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":["Marcela","Pablo"],"unico":null,"cumulative":{"Lindsay":162,"Angelica":162,"Samuel":173,"Marcela":155,"Mauricio":159,"Julian":140,"Pablo":132,"Jorge":141,"Cesar":115,"Margarita":125,"Yoshi":55,"Gabriel":2}},{"type":"match","fecha":"Jun 30","hora":"13:00","fase":"16savos de final","local":"CIV","visitante":"NOR","real":"1-2","match_pts":{"Lindsay":0,"Angelica":5,"Samuel":1,"Marcela":5,"Mauricio":5,"Julian":2,"Pablo":5,"Jorge":5,"Cesar":0,"Margarita":0,"Yoshi":3,"Gabriel":0},"exactos":["Angelica","Marcela","Mauricio","Pablo","Jorge"],"unico":null,"cumulative":{"Lindsay":162,"Angelica":167,"Samuel":174,"Marcela":160,"Mauricio":164,"Julian":142,"Pablo":137,"Jorge":146,"Cesar":115,"Margarita":125,"Yoshi":58,"Gabriel":2}},{"type":"match","fecha":"Jun 30","hora":"17:00","fase":"16savos de final","local":"FRA","visitante":"SWE","real":"3-0","match_pts":{"Lindsay":3,"Angelica":2,"Samuel":3,"Marcela":3,"Mauricio":3,"Julian":3,"Pablo":3,"Jorge":3,"Cesar":7,"Margarita":2,"Yoshi":3,"Gabriel":0},"exactos":["Cesar"],"unico":"Cesar","cumulative":{"Lindsay":165,"Angelica":169,"Samuel":177,"Marcela":163,"Mauricio":167,"Julian":145,"Pablo":140,"Jorge":149,"Cesar":122,"Margarita":127,"Yoshi":61,"Gabriel":2}},{"type":"match","fecha":"Jun 30","hora":"21:00","fase":"16savos de final","local":"MEX","visitante":"ECU","real":"2-0","match_pts":{"Lindsay":0,"Angelica":3,"Samuel":0,"Marcela":3,"Mauricio":3,"Julian":3,"Pablo":0,"Jorge":3,"Cesar":0,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":165,"Angelica":172,"Samuel":177,"Marcela":166,"Mauricio":170,"Julian":148,"Pablo":140,"Jorge":152,"Cesar":122,"Margarita":127,"Yoshi":61,"Gabriel":2}},{"type":"match","fecha":"Jul 1","hora":"12:00","fase":"16savos de final","local":"ENG","visitante":"COD","real":"2-1","match_pts":{"Lindsay":5,"Angelica":3,"Samuel":3,"Marcela":5,"Mauricio":1,"Julian":3,"Pablo":1,"Jorge":3,"Cesar":3,"Margarita":0,"Yoshi":3,"Gabriel":0},"exactos":["Lindsay","Marcela"],"unico":null,"cumulative":{"Lindsay":170,"Angelica":175,"Samuel":180,"Marcela":171,"Mauricio":171,"Julian":151,"Pablo":141,"Jorge":155,"Cesar":125,"Margarita":127,"Yoshi":64,"Gabriel":2}},{"type":"match","fecha":"Jul 1","hora":"16:00","fase":"16savos de final","local":"BEL","visitante":"SEN","real":"3-2","match_pts":{"Lindsay":1,"Angelica":2,"Samuel":2,"Marcela":0,"Mauricio":1,"Julian":0,"Pablo":2,"Jorge":2,"Cesar":1,"Margarita":1,"Yoshi":1,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":171,"Angelica":177,"Samuel":182,"Marcela":171,"Mauricio":172,"Julian":151,"Pablo":143,"Jorge":157,"Cesar":126,"Margarita":128,"Yoshi":65,"Gabriel":2}},{"type":"match","fecha":"Jul 1","hora":"20:00","fase":"16savos de final","local":"USA","visitante":"BIH","real":"2-0","match_pts":{"Lindsay":2,"Angelica":5,"Samuel":5,"Marcela":3,"Mauricio":2,"Julian":3,"Pablo":3,"Jorge":3,"Cesar":2,"Margarita":3,"Yoshi":3,"Gabriel":0},"exactos":["Angelica","Samuel"],"unico":null,"cumulative":{"Lindsay":173,"Angelica":182,"Samuel":187,"Marcela":174,"Mauricio":174,"Julian":154,"Pablo":146,"Jorge":160,"Cesar":128,"Margarita":131,"Yoshi":68,"Gabriel":2}},{"type":"match","fecha":"Jul 2","hora":"15:00","fase":"16savos de final","local":"ESP","visitante":"AUT","real":"3-0","match_pts":{"Lindsay":0,"Angelica":2,"Samuel":0,"Marcela":2,"Mauricio":3,"Julian":7,"Pablo":3,"Jorge":3,"Cesar":3,"Margarita":3,"Yoshi":3,"Gabriel":0},"exactos":["Julian"],"unico":"Julian","cumulative":{"Lindsay":173,"Angelica":184,"Samuel":187,"Marcela":176,"Mauricio":177,"Julian":161,"Pablo":149,"Jorge":163,"Cesar":131,"Margarita":134,"Yoshi":71,"Gabriel":2}},{"type":"match","fecha":"Jul 2","hora":"19:00","fase":"16savos de final","local":"POR","visitante":"CRO","real":"2-1","match_pts":{"Lindsay":0,"Angelica":5,"Samuel":0,"Marcela":1,"Mauricio":1,"Julian":1,"Pablo":1,"Jorge":0,"Cesar":5,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":["Angelica","Cesar"],"unico":null,"cumulative":{"Lindsay":173,"Angelica":189,"Samuel":187,"Marcela":177,"Mauricio":178,"Julian":162,"Pablo":150,"Jorge":163,"Cesar":136,"Margarita":135,"Yoshi":71,"Gabriel":2}},{"type":"match","fecha":"Jul 2","hora":"23:00","fase":"16savos de final","local":"SUI","visitante":"ALG","real":"2-0","match_pts":{"Lindsay":0,"Angelica":3,"Samuel":3,"Marcela":3,"Mauricio":0,"Julian":3,"Pablo":3,"Jorge":3,"Cesar":2,"Margarita":7,"Yoshi":3,"Gabriel":0},"exactos":["Margarita"],"unico":"Margarita","cumulative":{"Lindsay":173,"Angelica":192,"Samuel":190,"Marcela":180,"Mauricio":178,"Julian":165,"Pablo":153,"Jorge":166,"Cesar":138,"Margarita":142,"Yoshi":74,"Gabriel":2}},{"type":"match","fecha":"Jul 3","hora":"14:00","fase":"16savos de final","local":"AUS","visitante":"EGY","real":"1-1","match_pts":{"Lindsay":1,"Angelica":1,"Samuel":7,"Marcela":1,"Mauricio":0,"Julian":0,"Pablo":1,"Jorge":1,"Cesar":1,"Margarita":2,"Yoshi":1,"Gabriel":0},"exactos":["Samuel"],"unico":"Samuel","cumulative":{"Lindsay":174,"Angelica":193,"Samuel":197,"Marcela":181,"Mauricio":178,"Julian":165,"Pablo":154,"Jorge":167,"Cesar":139,"Margarita":144,"Yoshi":75,"Gabriel":2}},{"type":"match","fecha":"Jul 3","hora":"18:00","fase":"16savos de final","local":"ARG","visitante":"CPV","real":"3-2","match_pts":{"Lindsay":3,"Angelica":3,"Samuel":3,"Marcela":3,"Mauricio":3,"Julian":0,"Pablo":2,"Jorge":3,"Cesar":1,"Margarita":0,"Yoshi":3,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":177,"Angelica":196,"Samuel":200,"Marcela":184,"Mauricio":181,"Julian":165,"Pablo":156,"Jorge":170,"Cesar":140,"Margarita":144,"Yoshi":78,"Gabriel":2}},{"type":"match","fecha":"Jul 3","hora":"21:30","fase":"16savos de final","local":"COL","visitante":"GHA","real":"1-0","match_pts":{"Lindsay":5,"Angelica":2,"Samuel":3,"Marcela":2,"Mauricio":2,"Julian":5,"Pablo":3,"Jorge":2,"Cesar":3,"Margarita":2,"Yoshi":2,"Gabriel":0},"exactos":["Lindsay","Julian"],"unico":null,"cumulative":{"Lindsay":182,"Angelica":198,"Samuel":203,"Marcela":186,"Mauricio":183,"Julian":170,"Pablo":159,"Jorge":172,"Cesar":143,"Margarita":146,"Yoshi":80,"Gabriel":2}},{"type":"bonus","fase":"16savos de final","label":"Bono de 16savos de final","bono_val":10,"ganadores":[],"detalle":{"Lindsay":"8/16","Angelica":"13/16","Samuel":"12/16","Marcela":"14/16","Mauricio":"11/16","Julian":"13/16","Pablo":"11/16","Jorge":"12/16","Cesar":"9/16","Margarita":"8/16","Yoshi":"12/16","Gabriel":"0/16"},"cumulative":{"Lindsay":182,"Angelica":198,"Samuel":203,"Marcela":186,"Mauricio":183,"Julian":170,"Pablo":159,"Jorge":172,"Cesar":143,"Margarita":146,"Yoshi":80,"Gabriel":2}},{"type":"match","fecha":"Jul 4","hora":"13:00","fase":"Octavos de final","local":"CAN","visitante":"MAR","real":"0-3","match_pts":{"Lindsay":3,"Angelica":2,"Samuel":3,"Marcela":0,"Mauricio":2,"Julian":2,"Pablo":2,"Jorge":2,"Cesar":7,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":["Cesar"],"unico":"Cesar","cumulative":{"Lindsay":185,"Angelica":200,"Samuel":206,"Marcela":186,"Mauricio":185,"Julian":172,"Pablo":161,"Jorge":174,"Cesar":150,"Margarita":146,"Yoshi":80,"Gabriel":2}},{"type":"match","fecha":"Jul 4","hora":"17:00","fase":"Octavos de final","local":"PAR","visitante":"FRA","real":"0-1","match_pts":{"Lindsay":2,"Angelica":3,"Samuel":3,"Marcela":2,"Mauricio":3,"Julian":2,"Pablo":2,"Jorge":2,"Cesar":3,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":187,"Angelica":203,"Samuel":209,"Marcela":188,"Mauricio":188,"Julian":174,"Pablo":163,"Jorge":176,"Cesar":153,"Margarita":147,"Yoshi":80,"Gabriel":2}},{"type":"match","fecha":"Jul 5","hora":"16:00","fase":"Octavos de final","local":"BRA","visitante":"NOR","real":"1-2","match_pts":{"Lindsay":1,"Angelica":0,"Samuel":1,"Marcela":1,"Mauricio":1,"Julian":1,"Pablo":1,"Jorge":0,"Cesar":0,"Margarita":1,"Yoshi":1,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":188,"Angelica":203,"Samuel":210,"Marcela":189,"Mauricio":189,"Julian":175,"Pablo":164,"Jorge":176,"Cesar":153,"Margarita":148,"Yoshi":81,"Gabriel":2}},{"type":"match","fecha":"Jul 5","hora":"20:00","fase":"Octavos de final","local":"MEX","visitante":"ENG","real":"2-3","match_pts":{"Lindsay":1,"Angelica":1,"Samuel":0,"Marcela":0,"Mauricio":0,"Julian":0,"Pablo":0,"Jorge":2,"Cesar":2,"Margarita":0,"Yoshi":2,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":189,"Angelica":204,"Samuel":210,"Marcela":189,"Mauricio":189,"Julian":175,"Pablo":164,"Jorge":178,"Cesar":155,"Margarita":148,"Yoshi":83,"Gabriel":2}},{"type":"match","fecha":"Jul 6","hora":"15:00","fase":"Octavos de final","local":"ESP","visitante":"POR","real":"1-0","match_pts":{"Lindsay":2,"Angelica":2,"Samuel":2,"Marcela":2,"Mauricio":3,"Julian":2,"Pablo":2,"Jorge":2,"Cesar":2,"Margarita":3,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":191,"Angelica":206,"Samuel":212,"Marcela":191,"Mauricio":192,"Julian":177,"Pablo":166,"Jorge":180,"Cesar":157,"Margarita":151,"Yoshi":83,"Gabriel":2}},{"type":"match","fecha":"Jul 6","hora":"20:00","fase":"Octavos de final","local":"BEL","visitante":"USA","real":"4-1","match_pts":{"Lindsay":0,"Angelica":3,"Samuel":1,"Marcela":0,"Mauricio":1,"Julian":0,"Pablo":1,"Jorge":3,"Cesar":3,"Margarita":1,"Yoshi":3,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":191,"Angelica":209,"Samuel":213,"Marcela":191,"Mauricio":193,"Julian":177,"Pablo":167,"Jorge":183,"Cesar":160,"Margarita":152,"Yoshi":86,"Gabriel":2}},{"type":"match","fecha":"Jul 7","hora":"12:00","fase":"Octavos de final","local":"ARG","visitante":"EGY","real":"3-2","match_pts":{"Lindsay":2,"Angelica":2,"Samuel":2,"Marcela":2,"Mauricio":2,"Julian":2,"Pablo":0,"Jorge":3,"Cesar":1,"Margarita":1,"Yoshi":3,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":193,"Angelica":211,"Samuel":215,"Marcela":193,"Mauricio":195,"Julian":179,"Pablo":167,"Jorge":186,"Cesar":161,"Margarita":153,"Yoshi":89,"Gabriel":2}},{"type":"match","fecha":"Jul 7","hora":"16:00","fase":"Octavos de final","local":"SUI","visitante":"COL","real":"0-0","match_pts":{"Lindsay":1,"Angelica":0,"Samuel":2,"Marcela":0,"Mauricio":0,"Julian":0,"Pablo":1,"Jorge":0,"Cesar":0,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":194,"Angelica":211,"Samuel":217,"Marcela":193,"Mauricio":195,"Julian":179,"Pablo":168,"Jorge":186,"Cesar":161,"Margarita":153,"Yoshi":89,"Gabriel":2}},{"type":"bonus","fase":"Octavos de final","label":"Bono de Octavos de final","bono_val":8,"ganadores":[],"detalle":{"Lindsay":"4/8","Angelica":"5/8","Samuel":"5/8","Marcela":"4/8","Mauricio":"5/8","Julian":"6/8","Pablo":"5/8","Jorge":"6/8","Cesar":"5/8","Margarita":"2/8","Yoshi":"3/8","Gabriel":"0/8"},"cumulative":{"Lindsay":194,"Angelica":211,"Samuel":217,"Marcela":193,"Mauricio":195,"Julian":179,"Pablo":168,"Jorge":186,"Cesar":161,"Margarita":153,"Yoshi":89,"Gabriel":2}},{"type":"match","fecha":"Jul 9","hora":"16:00","fase":"Cuartos de final","local":"FRA","visitante":"MAR","real":"2-0","match_pts":{"Lindsay":2,"Angelica":3,"Samuel":7,"Marcela":3,"Mauricio":3,"Julian":1,"Pablo":3,"Jorge":3,"Cesar":3,"Margarita":0,"Yoshi":2,"Gabriel":0},"exactos":["Samuel"],"unico":"Samuel","cumulative":{"Lindsay":196,"Angelica":214,"Samuel":224,"Marcela":196,"Mauricio":198,"Julian":180,"Pablo":171,"Jorge":189,"Cesar":164,"Margarita":153,"Yoshi":91,"Gabriel":2}},{"type":"match","fecha":"Jul 10","hora":"15:00","fase":"Cuartos de final","local":"ESP","visitante":"BEL","real":"2-1","match_pts":{"Lindsay":0,"Angelica":5,"Samuel":2,"Marcela":5,"Mauricio":1,"Julian":0,"Pablo":2,"Jorge":5,"Cesar":5,"Margarita":5,"Yoshi":5,"Gabriel":0},"exactos":["Angelica","Marcela","Jorge","Cesar","Margarita","Yoshi"],"unico":null,"cumulative":{"Lindsay":196,"Angelica":219,"Samuel":226,"Marcela":201,"Mauricio":199,"Julian":180,"Pablo":173,"Jorge":194,"Cesar":169,"Margarita":158,"Yoshi":96,"Gabriel":2}},{"type":"match","fecha":"Jul 11","hora":"17:00","fase":"Cuartos de final","local":"NOR","visitante":"ENG","real":"1-2","match_pts":{"Lindsay":0,"Angelica":5,"Samuel":5,"Marcela":1,"Mauricio":0,"Julian":0,"Pablo":0,"Jorge":0,"Cesar":3,"Margarita":1,"Yoshi":0,"Gabriel":0},"exactos":["Angelica","Samuel"],"unico":null,"cumulative":{"Lindsay":196,"Angelica":224,"Samuel":231,"Marcela":202,"Mauricio":199,"Julian":180,"Pablo":173,"Jorge":194,"Cesar":172,"Margarita":159,"Yoshi":96,"Gabriel":2}},{"type":"match","fecha":"Jul 11","hora":"21:00","fase":"Cuartos de final","local":"ARG","visitante":"SUI","real":"3-1","match_pts":{"Lindsay":2,"Angelica":3,"Samuel":2,"Marcela":1,"Mauricio":2,"Julian":7,"Pablo":3,"Jorge":3,"Cesar":1,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":["Julian"],"unico":"Julian","cumulative":{"Lindsay":198,"Angelica":227,"Samuel":233,"Marcela":203,"Mauricio":201,"Julian":187,"Pablo":176,"Jorge":197,"Cesar":173,"Margarita":159,"Yoshi":96,"Gabriel":2}},{"type":"bonus","fase":"Cuartos de final","label":"Bono de Cuartos de final","bono_val":4,"ganadores":["Angelica","Samuel"],"detalle":{"Lindsay":"2/4","Angelica":"4/4","Samuel":"4/4","Marcela":"2/4","Mauricio":"2/4","Julian":"2/4","Pablo":"3/4","Jorge":"3/4","Cesar":"3/4","Margarita":"2/4","Yoshi":"2/4","Gabriel":"0/4"},"cumulative":{"Lindsay":198,"Angelica":231,"Samuel":237,"Marcela":203,"Mauricio":201,"Julian":187,"Pablo":176,"Jorge":197,"Cesar":173,"Margarita":159,"Yoshi":96,"Gabriel":2}},{"type":"match","fecha":"Jul 14","hora":"15:00","fase":"Semifinal","local":"FRA","visitante":"ESP","real":"0-2","match_pts":{"Lindsay":0,"Angelica":3,"Samuel":0,"Marcela":0,"Mauricio":0,"Julian":0,"Pablo":0,"Jorge":3,"Cesar":0,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":198,"Angelica":234,"Samuel":237,"Marcela":203,"Mauricio":201,"Julian":187,"Pablo":176,"Jorge":200,"Cesar":173,"Margarita":159,"Yoshi":96,"Gabriel":2}},{"type":"match","fecha":"Jul 15","hora":"15:00","fase":"Semifinal","local":"ENG","visitante":"ARG","real":"1-2","match_pts":{"Lindsay":1,"Angelica":5,"Samuel":0,"Marcela":0,"Mauricio":0,"Julian":1,"Pablo":0,"Jorge":5,"Cesar":0,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":["Angelica","Jorge"],"unico":null,"cumulative":{"Lindsay":199,"Angelica":239,"Samuel":237,"Marcela":203,"Mauricio":201,"Julian":188,"Pablo":176,"Jorge":205,"Cesar":173,"Margarita":159,"Yoshi":96,"Gabriel":2}},{"type":"bonus","fase":"Semifinal","label":"Bono de Semifinal","bono_val":2,"ganadores":["Angelica","Jorge"],"detalle":{"Lindsay":"0/2","Angelica":"2/2","Samuel":"0/2","Marcela":"0/2","Mauricio":"0/2","Julian":"0/2","Pablo":"0/2","Jorge":"2/2","Cesar":"0/2","Margarita":"0/2","Yoshi":"0/2","Gabriel":"0/2"},"cumulative":{"Lindsay":199,"Angelica":241,"Samuel":237,"Marcela":203,"Mauricio":201,"Julian":188,"Pablo":176,"Jorge":207,"Cesar":173,"Margarita":159,"Yoshi":96,"Gabriel":2}},{"type":"match","fecha":"Jul 18","hora":"17:00","fase":"Tercer y cuarto puesto","local":"FRA","visitante":"ENG","real":"4-6","match_pts":{"Lindsay":0,"Angelica":0,"Samuel":0,"Marcela":0,"Mauricio":0,"Julian":0,"Pablo":0,"Jorge":0,"Cesar":0,"Margarita":0,"Yoshi":0,"Gabriel":0},"exactos":[],"unico":null,"cumulative":{"Lindsay":199,"Angelica":241,"Samuel":237,"Marcela":203,"Mauricio":201,"Julian":188,"Pablo":176,"Jorge":207,"Cesar":173,"Margarita":159,"Yoshi":96,"Gabriel":2}}]};
+const participantes = DATA.participantes;
+const frames = DATA.frames;
+
+const COLORS = {
+  'Lindsay':'#FF6B6B','Angelica':'#FFD166','Samuel':'#06D6A0','Marcela':'#4CC9F0',
+  'Mauricio':'#C08FFF','Julian':'#F77F00','Pablo':'#EF476F','Jorge':'#4EA8DE',
+  'Cesar':'#8FD14F','Margarita':'#FF9F1C','Yoshi':'#B892FF','Gabriel':'#8A9A90'
+};
+const INITIALS = {};
+participantes.forEach(p => INITIALS[p] = p.slice(0,2).toUpperCase());
+
+// build cumulative-0 baseline frame
+const zeroFrame = {type:'start', cumulative: Object.fromEntries(participantes.map(p=>[p,0]))};
+const allFrames = [zeroFrame, ...frames];
+
+let idx = 0;
+let playing = false;
+let speed = 900;
+let timer = null;
+let prevRanks = {};
+
+const board = document.getElementById('board');
+const scrubber = document.getElementById('scrubber');
+const frameCount = document.getElementById('frameCount');
+const playBtn = document.getElementById('playBtn');
+const jumpRow = document.getElementById('jumpRow');
+
+scrubber.max = allFrames.length - 1;
+
+// build track lanes (static backdrop) + rows once
+participantes.forEach((p, i) => {
+  const track = document.createElement('div');
+  track.className = 'track';
+  track.style.top = (14 + i*44) + 'px';
+  board.appendChild(track);
+});
+participantes.forEach(p => {
+  const row = document.createElement('div');
+  row.className = 'row';
+  row.id = 'row-' + p;
+  row.innerHTML = `
+    <div class="row-inner">
+      <span class="rank" id="rank-${p}">–</span>
+      <div class="bar" id="bar-${p}" style="background:${COLORS[p]}; width:34px;">
+        <span class="crown" id="crown-${p}">👑</span>
+        <span class="avatar" style="border-color:${COLORS[p]};">${INITIALS[p]}</span>
+        <span class="name">${p}</span>
+      </div>
+      <span class="pts-badge" id="pts-${p}">0 <span class="delta" id="delta-${p}"></span></span>
+    </div>`;
+  board.appendChild(row);
+});
+
+// jump buttons to phase starts
+const phaseStarts = {};
+allFrames.forEach((f,i) => {
+  const fase = f.fase || (f.type==='start' ? 'Grupos' : null);
+  if (fase && !(fase in phaseStarts)) phaseStarts[fase] = i;
+});
+Object.entries(phaseStarts).forEach(([fase, i]) => {
+  const btn = document.createElement('button');
+  btn.className = 'jump-btn';
+  btn.textContent = fase;
+  btn.onclick = () => { pause(); goTo(i); };
+  jumpRow.appendChild(btn);
+});
+
+function barWidthPx(container, val, max){
+  const usable = Math.max(container.clientWidth - 90, 120);
+  return 34 + (usable-34) * (val/Math.max(max,1));
+}
+
+function render(i, animate=true){
+  const f = allFrames[i];
+  const cum = f.cumulative;
+  // stable sort: points desc, alphabetical tiebreak so tied rows don't jitter between frames
+  const ranked = [...participantes].sort((a,b)=> cum[b]-cum[a] || a.localeCompare(b));
+  const maxVal = Math.max(...Object.values(cum), 1);
+
+  // standard competition ranking (1,1,3,...): ties share the same displayed number
+  const rankLabels = [];
+  ranked.forEach((p, i2) => {
+    if (i2 > 0 && cum[p] === cum[ranked[i2-1]]) rankLabels.push(rankLabels[i2-1]);
+    else rankLabels.push(i2+1);
+  });
+
+  ranked.forEach((p, rankIdx) => {
+    const row = document.getElementById('row-'+p);
+    row.style.transform = `translateY(${rankIdx * 44}px)`;
+    const bar = document.getElementById('bar-'+p);
+    const w = barWidthPx(board, cum[p], maxVal);
+    bar.style.width = w + 'px';
+    document.getElementById('rank-'+p).textContent = rankLabels[rankIdx];
+    document.getElementById('pts-'+p).firstChild.textContent = cum[p] + ' ';
+    document.getElementById('crown-'+p).classList.toggle('show', rankLabels[rankIdx]===1 && cum[p]>0);
+
+    if (animate) {
+      const delta = document.getElementById('delta-'+p);
+      const gained = f.type==='match' ? (f.match_pts[p]||0) : (f.type==='bonus' ? (f.ganadores && f.ganadores.includes(p) ? f.bono_val : 0) : 0);
+      if (gained > 0) {
+        delta.textContent = '+' + gained;
+        delta.classList.add('show');
+        bar.classList.remove('pulse'); void bar.offsetWidth; bar.classList.add('pulse');
+        setTimeout(()=>delta.classList.remove('show'), speed>500? 1300 : 500);
+      }
+    }
+  });
+  board.style.height = (participantes.length * 44 - 6 + 24) + 'px';
+  prevRanks = Object.fromEntries(ranked.map((p,i2)=>[p,i2]));
+
+  // ticker
+  const ticker = document.getElementById('ticker');
+  const tFase = document.getElementById('t-fase');
+  const tFecha = document.getElementById('t-fecha');
+  const tMatch = document.getElementById('t-match');
+  const tNote = document.getElementById('t-note');
+  ticker.classList.remove('bonus');
+
+  if (f.type === 'start') {
+    tFase.textContent = 'Antes del silbatazo';
+    tFecha.textContent = '—';
+    tMatch.textContent = 'Todos en cero';
+    tNote.innerHTML = 'Dale play y mira cómo se mueve la tabla ⬇️';
+  } else if (f.type === 'match') {
+    tFase.textContent = f.fase;
+    tFecha.textContent = f.fecha + ' · ' + f.hora;
+    tMatch.innerHTML = `${f.local} <span class="ticker-score">${f.real}</span> ${f.visitante}`;
+    let note = '';
+    if (f.unico) note += `⭐ <b>${f.unico}</b> única con marcador exacto (+2)`;
+    else if (f.exactos.length) note += `🎯 ${f.exactos.join(', ')} clavaron el marcador`;
+    else note += 'Nadie clavó el marcador exacto';
+    tNote.innerHTML = note;
+  } else if (f.type === 'bonus') {
+    ticker.classList.add('bonus');
+    tFase.textContent = 'Bono de fase ✨';
+    tFecha.textContent = f.fase;
+    tMatch.textContent = `+${f.bono_val} pts`;
+    tNote.innerHTML = f.ganadores.length
+      ? `🏆 Perfecto en ${f.fase}: <b>${f.ganadores.join(', ')}</b>`
+      : `Nadie acertó todos los partidos de ${f.fase}`;
+  }
+
+  scrubber.value = i;
+  frameCount.textContent = `${i} / ${allFrames.length - 1}`;
+}
+
+function goTo(i){
+  idx = Math.max(0, Math.min(allFrames.length-1, i));
+  render(idx);
+}
+
+function step(){
+  if (idx >= allFrames.length - 1) { pause(); return; }
+  idx++;
+  render(idx);
+  const f = allFrames[idx];
+  if (f.unico || (f.type==='bonus' && f.ganadores.length)) burstConfetti();
+}
+
+function play(){
+  if (playing) return;
+  playing = true;
+  playBtn.textContent = '⏸';
+  timer = setInterval(step, speed);
+}
+function pause(){
+  playing = false;
+  playBtn.textContent = '▶';
+  clearInterval(timer);
+}
+
+playBtn.onclick = () => playing ? pause() : play();
+scrubber.oninput = (e) => { pause(); goTo(parseInt(e.target.value)); };
+
+document.querySelectorAll('.speed-btn').forEach(btn=>{
+  btn.onclick = () => {
+    document.querySelectorAll('.speed-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    speed = parseInt(btn.dataset.speed);
+    if (playing) { pause(); play(); }
+  };
+});
+
+window.addEventListener('resize', ()=>render(idx, false));
+
+// ---- confetti ----
+const canvas = document.getElementById('confetti');
+const ctx = canvas.getContext('2d');
+function resizeCanvas(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+let particles = [];
+function burstConfetti(){
+  const colors = Object.values(COLORS);
+  for(let i=0;i<36;i++){
+    particles.push({
+      x: canvas.width/2 + (Math.random()-0.5)*200,
+      y: canvas.height*0.28,
+      vx: (Math.random()-0.5)*8,
+      vy: Math.random()*-6-2,
+      g: 0.25,
+      size: Math.random()*6+3,
+      color: colors[Math.floor(Math.random()*colors.length)],
+      life: 60+Math.random()*30
+    });
+  }
+}
+function animateConfetti(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    p.vy += p.g; p.x += p.vx; p.y += p.vy; p.life--;
+    ctx.globalAlpha = Math.max(p.life/80, 0);
+    ctx.fillStyle = p.color;
+    ctx.fillRect(p.x, p.y, p.size, p.size);
+  });
+  particles = particles.filter(p=>p.life>0 && p.y < canvas.height+20);
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(animateConfetti);
+}
+animateConfetti();
+
+// init
+render(0, false);
+
+// ================= Admin panel: add match manually =================
+
+// build one input per participant for predictions
+const predsGrid = document.getElementById('predsGrid');
+participantes.forEach(p => {
+  const wrap = document.createElement('div');
+  wrap.className = 'field pred-field';
+  wrap.innerHTML = `
+    <label><span class="pred-swatch" style="background:${COLORS[p]};"></span>${p}</label>
+    <input type="text" id="pred-${p}" placeholder="2-1">`;
+  predsGrid.appendChild(wrap);
+});
+
+document.getElementById('adminToggle').onclick = () => {
+  document.getElementById('adminBody').classList.toggle('open');
+};
+
+// same rules as the rest of the tournament:
+// exact score = 5 (excludes the rest); otherwise winner/draw = 2 and matching goal count = 1, additive.
+function calcMatchJS(real, pred){
+  if (!real || !pred || pred === '-' || real === '-') return {pts:0, exacto:false};
+  const rm = real.split('-').map(Number);
+  const pm = pred.split('-').map(Number);
+  if (rm.length!==2 || pm.length!==2 || rm.some(isNaN) || pm.some(isNaN)) return {pts:0, exacto:false};
+  const [rl,rv] = rm, [pl,pv] = pm;
+  if (rl===pl && rv===pv) return {pts:5, exacto:true};
+  const ganador = (rl>rv && pl>pv) || (rl<rv && pl<pv) || (rl===rv && pl===pv);
+  const golMatch = (rl===pl || rv===pv);
+  return {pts: (ganador?2:0) + (golMatch?1:0), exacto:false};
+}
+function winnerOf(local, visitante, score){
+  if (!score || score==='-') return null;
+  const [l,v] = score.split('-').map(Number);
+  if (isNaN(l)||isNaN(v)) return null;
+  if (l>v) return local;
+  if (v>l) return visitante;
+  return 'EMPATE';
+}
+
+const adminMsg = document.getElementById('adminMsg');
+function showMsg(text, ok){
+  adminMsg.textContent = text;
+  adminMsg.className = 'admin-msg ' + (ok ? 'ok' : 'err');
+}
+
+document.getElementById('addMatchBtn').onclick = () => {
+  const fase = document.getElementById('f-fase').value.trim();
+  const fecha = document.getElementById('f-fecha').value.trim();
+  const hora = document.getElementById('f-hora').value.trim();
+  const local = document.getElementById('f-local').value.trim();
+  const visitante = document.getElementById('f-visitante').value.trim();
+  const real = document.getElementById('f-real').value.trim();
+  const bonoVal = parseInt(document.getElementById('f-bono').value);
+
+  if (!fase || !local || !visitante) { showMsg('Falta fase, local o visitante.', false); return; }
+
+  const preds = {};
+  participantes.forEach(p => { preds[p] = document.getElementById('pred-'+p).value.trim(); });
+
+  const lastCum = allFrames[allFrames.length-1].cumulative;
+  const newCum = Object.assign({}, lastCum);
+
+  if (!real) {
+    // pending match: no points yet, just recorded so it shows in the ticker
+    allFrames.push({
+      type:'match', fecha, hora, fase, local, visitante, real:'',
+      match_pts: Object.fromEntries(participantes.map(p=>[p,0])),
+      exactos: [], unico: null, cumulative: newCum
+    });
+    scrubber.max = allFrames.length - 1;
+    goTo(allFrames.length-1);
+    showMsg('Partido agregado como pendiente (sin resultado aún). Sin puntos todavía.', true);
+  } else {
+    const matchPts = {}; let nExact = 0; const exactos = [];
+    participantes.forEach(p => {
+      const r = calcMatchJS(real, preds[p]);
+      matchPts[p] = r.pts;
+      if (r.exacto) { nExact++; exactos.push(p); }
+    });
+    let unico = null;
+    participantes.forEach(p => {
+      if (exactos.includes(p) && nExact===1) { matchPts[p]+=2; unico=p; }
+      newCum[p] = lastCum[p] + matchPts[p];
+    });
+    allFrames.push({ type:'match', fecha, hora, fase, local, visitante, real, match_pts:matchPts, exactos, unico, cumulative: Object.assign({}, newCum) });
+
+    if (bonoVal > 0) {
+      const w = winnerOf(local, visitante, real);
+      const ganadores = participantes.filter(p => winnerOf(local, visitante, preds[p]) === w && w !== 'EMPATE');
+      const bonoCum = Object.assign({}, newCum);
+      ganadores.forEach(p => bonoCum[p] += bonoVal);
+      allFrames.push({ type:'bonus', fase, label:'Bono de '+fase, bono_val:bonoVal, ganadores, detalle:{}, cumulative: bonoCum });
+    }
+    scrubber.max = allFrames.length - 1;
+    goTo(allFrames.length-1);
+    showMsg('Partido agregado y puntos calculados ✓', true);
+  }
+
+  // register a jump button for this phase if it's new
+  if (!(fase in phaseStarts)) {
+    phaseStarts[fase] = allFrames.length-1;
+    const btn = document.createElement('button');
+    btn.className = 'jump-btn';
+    btn.textContent = fase;
+    btn.onclick = () => { pause(); goTo(phaseStarts[fase]); };
+    jumpRow.appendChild(btn);
+  }
+};
+
+document.getElementById('downloadBtn').onclick = () => {
+  const newDataStr = JSON.stringify({participantes, frames: allFrames.slice(1)});
+  const clone = document.documentElement.cloneNode(true);
+  clone.querySelector('#board').innerHTML = '';
+  const scriptEl = clone.querySelector('script');
+  scriptEl.textContent = scriptEl.textContent.replace(/const DATA = [\s\S]*?;\nconst participantes/, 'const DATA = ' + newDataStr + ';\nconst participantes');
+  const html = '<!DOCTYPE html>\n' + clone.outerHTML;
+  const blob = new Blob([html], {type:'text/html'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'polla_mundial_2026_actualizado.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showMsg('Descargando... usa ese archivo nuevo de ahora en adelante.', true);
+};
+</script>
+
+
+</body></html>
