@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-18 15:39",
+  "actualizado": "2026-07-19 09:38",
   "nombres": [
     "Lindsay",
     "Angelica",
@@ -3065,6 +3065,28 @@
       "Cesar": "3-1",
       "Margarita": "5-1",
       "Yoshi": "2-1",
+      "Gabriel": ""
+    },
+    {
+      "Fecha": "Jul 18",
+      "Hora": "17:00",
+      "Fase": "Tercer puesto",
+      "Local": "FRA",
+      "FlagLocal": "https://flagcdn.com/24x18/fr.png",
+      "Visitante": "ENG",
+      "FlagVisitante": "https://flagcdn.com/24x18/gb-eng.png",
+      "Marcador": "4-6",
+      "Lindsay": "3-1",
+      "Angelica": "2-1",
+      "Samuel": "2-1",
+      "Marcela": "3-1",
+      "Mauricio": "3-1",
+      "Julian": "3-2",
+      "Pablo": "2-1",
+      "Jorge": "2-1",
+      "Cesar": "",
+      "Margarita": "3-1",
+      "Yoshi": "2-2",
       "Gabriel": ""
     }
   ]
